@@ -21,3 +21,6 @@ npm-debug.log*
 .DS_Store
 .vscode/
 .idea/
+
+# e2e screenshots
+e2e/output/
