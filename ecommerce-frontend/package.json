@@ -1,7 +1,9 @@
 {
   "name": "ecommerce-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "ShopSphere React frontend - Vite, React Router, Axios, Redux Toolkit and Tailwind CSS",
+  "author": "Fathima K H",
   "type": "module",
   "scripts": {
     "dev": "vite",
