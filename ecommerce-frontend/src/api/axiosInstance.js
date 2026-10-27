@@ -57,11 +57,13 @@ api.interceptors.response.use(
     const { config, response } = error
     trackRequestEnd(config?.requestId)
 
-    // Only a request that actually carried our token can prove the session is dead;
-    // e.g. a wrong password on /auth/login (INVALID_CREDENTIALS) must not log anyone out.
-    const sentToken = Boolean(config?.headers?.has?.('Authorization'))
-    if (response?.status === 401 && sentToken && SESSION_ERROR_CODES.has(response.data?.code)) {
-      store?.dispatch(sessionExpired())
+    // Only a request that carried the *current* token can prove the session is dead. This
+    // ignores e.g. a wrong password on /auth/login (INVALID_CREDENTIALS) and requests still in
+    // flight with an older token after a password change or a logout.
+    const currentToken = store?.getState().auth.token
+    const sentCurrentToken = Boolean(currentToken) && config?.headers?.get?.('Authorization') === `Bearer ${currentToken}`
+    if (response?.status === 401 && sentCurrentToken && SESSION_ERROR_CODES.has(response.data?.code)) {
+      store.dispatch(sessionExpired())
     }
     return Promise.reject(error)
   },
