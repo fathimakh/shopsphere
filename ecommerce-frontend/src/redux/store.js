@@ -6,6 +6,9 @@ import cartReducer from './slices/cartSlice'
 import orderReducer from './slices/orderSlice'
 import productReducer from './slices/productSlice'
 
+/** A slice reducer's initial state (what Redux itself computes when the store is created). */
+const initialStateOf = (reducer) => reducer(undefined, { type: '@@shopsphere/INIT' })
+
 /**
  * Rehydrates the session and cart saved by the listeners. Expired or malformed sessions are
  * dropped by loadAuth(); a restored token still has to be confirmed by GET /auth/me
@@ -15,11 +18,11 @@ function loadPreloadedState() {
   const session = loadAuth()
   return {
     auth: {
-      ...authReducer.getInitialState(),
+      ...initialStateOf(authReducer),
       ...session,
       initialized: !session,
     },
-    cart: { ...cartReducer.getInitialState(), items: loadCart() },
+    cart: { ...initialStateOf(cartReducer), items: loadCart() },
   }
 }
 
