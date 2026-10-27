@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# environment (commit only .env.example)
+.env
+.env.*
+!.env.example
+
+# logs, coverage & OS files
+*.log
+npm-debug.log*
+coverage/
+.DS_Store
+
+# RapidMiner local runs (sample outputs are committed explicitly under rapidminer/)
+rapidminer/output/*.local.csv

@@ -1,0 +1,52 @@
+# Render Blueprint — deploys the API (Node web service) and the React app (static site)
+# from this one repository. Render dashboard → New → Blueprint → pick this repo.
+# Values marked `sync: false` are prompted for during the first deploy.
+services:
+  - type: web
+    name: shopsphere-api
+    runtime: node
+    plan: free
+    region: singapore
+    rootDir: ecommerce-backend
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: MONGO_URI # MongoDB Atlas connection string (…/shopsphere?retryWrites=true&w=majority)
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 1d
+      - key: CLIENT_URL # deployed frontend origin(s), comma separated, e.g. https://shopsphere-web.onrender.com
+        sync: false
+      - key: AUTH_RATE_LIMIT_MAX
+        value: "100"
+      - key: RECO_CACHE_TTL_SECONDS
+        value: "300"
+      - key: RAPIDMINER_TIMEOUT_MS
+        value: "4000"
+      - key: RAPIDMINER_SCORING_URL # optional: RapidMiner AI Hub web-service URL for live scoring
+        sync: false
+      - key: RAPIDMINER_AUTH_TOKEN # optional
+        sync: false
+
+  - type: web
+    name: shopsphere-web
+    runtime: static
+    rootDir: ecommerce-frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    pullRequestPreviewsEnabled: false
+    routes:
+      - type: rewrite # SPA fallback so deep links like /product/:id work on refresh
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL # e.g. https://shopsphere-api.onrender.com/api
+        sync: false
