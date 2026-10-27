@@ -7,6 +7,19 @@ export const PAYMENT_METHODS = ['COD', 'CARD'];
 export const NEXT_STATUS = { pending: 'processing', processing: 'shipped', shipped: 'delivered' };
 export const CUSTOMER_CANCELLABLE = ['pending', 'processing'];
 
+// Pricing rule (contract §2): free shipping from ₹999, otherwise a flat ₹49. No tax line.
+export const FREE_SHIPPING_THRESHOLD = 999;
+export const SHIPPING_FEE = 49;
+
+const roundCurrency = (value) => Math.round(value * 100) / 100;
+
+/** Server-side totals for [{ price, quantity }]; the frontend shows the same estimate. */
+export const calculateOrderPrices = (items) => {
+  const itemsPrice = roundCurrency(items.reduce((sum, item) => sum + item.price * item.quantity, 0));
+  const shippingPrice = itemsPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
+  return { itemsPrice, shippingPrice, totalPrice: roundCurrency(itemsPrice + shippingPrice) };
+};
+
 const orderItemSchema = new mongoose.Schema(
   {
     product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
