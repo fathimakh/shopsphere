@@ -21,3 +21,6 @@ export const prettifySlug = (slug) =>
 
 /** True for a 24-character hexadecimal MongoDB ObjectId string. */
 export const isObjectIdString = (value) => typeof value === 'string' && /^[a-f\d]{24}$/i.test(value);
+
+/** Emails are stored trimmed and lower-cased, so every lookup must normalise the same way. */
+export const normalizeEmail = (email) => String(email).trim().toLowerCase();
