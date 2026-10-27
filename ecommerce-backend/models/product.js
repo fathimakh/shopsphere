@@ -98,6 +98,8 @@ productSchema.pre('validate', async function deriveFields() {
     this.thumbnail = this.images[0] || '';
   }
   if (this.isModified('name') || !this.slug) this.slug = await uniqueSlug(this);
+  // Re-check "mrp >= price" when only the price changes (validators run on modified paths only).
+  if (this.isModified('price') && this.mrp != null) this.markModified('mrp');
 });
 
 /** Re-derives the average rating (1 decimal) and review count from the embedded reviews. */
