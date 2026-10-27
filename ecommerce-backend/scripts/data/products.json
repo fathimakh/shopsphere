@@ -1,0 +1,1253 @@
+{
+  "source": "https://dummyjson.com",
+  "generatedAt": "2026-10-27T15:53:03.009Z",
+  "usdToInr": 85,
+  "count": 60,
+  "products": [
+    {
+      "sourceId": 123,
+      "name": "iPhone 13 Pro",
+      "description": "The iPhone 13 Pro is a cutting-edge smartphone with a powerful camera system, high-performance chip, and stunning display. It offers advanced features for users who demand top-notch technology.",
+      "category": "smartphones",
+      "brand": "Apple",
+      "price": 93499,
+      "mrp": 103199,
+      "stock": 72,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/2.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/thumbnail.webp",
+      "tags": [
+        "smartphones",
+        "apple"
+      ],
+      "isFeatured": true
+    },
+    {
+      "sourceId": 124,
+      "name": "iPhone X",
+      "description": "The iPhone X is a flagship smartphone featuring a bezel-less OLED display, facial recognition technology (Face ID), and impressive performance. It represents a milestone in iPhone design and innovation.",
+      "category": "smartphones",
+      "brand": "Apple",
+      "price": 76499,
+      "mrp": 95199,
+      "stock": 33,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/1.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/2.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
+      "tags": [
+        "smartphones",
+        "apple"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 126,
+      "name": "Oppo F19 Pro Plus",
+      "description": "The Oppo F19 Pro Plus is a feature-rich smartphone with a focus on camera capabilities. It boasts advanced photography features and a powerful performance for a premium user experience.",
+      "category": "smartphones",
+      "brand": "Oppo",
+      "price": 33999,
+      "mrp": 41799,
+      "stock": 31,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/1.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/2.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/thumbnail.webp",
+      "tags": [
+        "smartphones",
+        "oppo"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 130,
+      "name": "Realme XT",
+      "description": "The Realme XT is a feature-rich smartphone with a focus on camera technology. It comes equipped with advanced camera sensors, delivering high-quality photos and videos for photography enthusiasts.",
+      "category": "smartphones",
+      "brand": "Realme",
+      "price": 29749,
+      "mrp": 33699,
+      "stock": 27,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/1.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/2.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/thumbnail.webp",
+      "tags": [
+        "smartphones",
+        "realme"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 132,
+      "name": "Samsung Galaxy S8",
+      "description": "The Samsung Galaxy S8 is a premium smartphone with an Infinity Display, offering a stunning visual experience. It boasts advanced camera capabilities and cutting-edge technology.",
+      "category": "smartphones",
+      "brand": "Samsung",
+      "price": 42499,
+      "mrp": 52799,
+      "stock": 25,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/1.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/2.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/thumbnail.webp",
+      "tags": [
+        "smartphones",
+        "samsung galaxy"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 133,
+      "name": "Samsung Galaxy S10",
+      "description": "The Samsung Galaxy S10 is a flagship device featuring a dynamic AMOLED display, versatile camera system, and powerful performance. It represents innovation and excellence in smartphone technology.",
+      "category": "smartphones",
+      "brand": "Samsung",
+      "price": 59499,
+      "mrp": 63099,
+      "stock": 62,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/1.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/2.webp",
+        "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/thumbnail.webp",
+      "tags": [
+        "smartphones",
+        "samsung galaxy"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 78,
+      "name": "Apple MacBook Pro 14 Inch Space Grey",
+      "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+      "category": "laptops",
+      "brand": "Apple",
+      "price": 169999,
+      "mrp": 178399,
+      "stock": 79,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp",
+      "tags": [
+        "laptops",
+        "apple"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 79,
+      "name": "Asus Zenbook Pro Dual Screen Laptop",
+      "description": "The Asus Zenbook Pro Dual Screen Laptop is a high-performance device with dual screens, providing productivity and versatility for creative professionals.",
+      "category": "laptops",
+      "brand": "Asus",
+      "price": 152999,
+      "mrp": 172199,
+      "stock": 40,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp",
+      "tags": [
+        "laptops"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 80,
+      "name": "Huawei Matebook X Pro",
+      "description": "The Huawei Matebook X Pro is a slim and stylish laptop with a high-resolution touchscreen display, offering a premium experience for users on the go.",
+      "category": "laptops",
+      "brand": "Huawei",
+      "price": 118999,
+      "mrp": 131399,
+      "stock": 77,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp",
+      "tags": [
+        "laptops"
+      ],
+      "isFeatured": true
+    },
+    {
+      "sourceId": 81,
+      "name": "Lenovo Yoga 920",
+      "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+      "category": "laptops",
+      "brand": "Lenovo",
+      "price": 93499,
+      "mrp": 100099,
+      "stock": 38,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp",
+      "tags": [
+        "laptops"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 82,
+      "name": "Dell XPS 13 9300 Laptop",
+      "description": "The New DELL XPS 13 9300 Laptop is a compact and powerful device, featuring a virtually borderless InfinityEdge display and high-end performance for various tasks.",
+      "category": "laptops",
+      "brand": "Dell",
+      "price": 127499,
+      "mrp": 144799,
+      "stock": 75,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/1.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/2.webp",
+        "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp",
+      "tags": [
+        "laptops"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 159,
+      "name": "iPad Mini 2021 Starlight",
+      "description": "The iPad Mini 2021 in Starlight is a compact and powerful tablet from Apple. Featuring a stunning Retina display, powerful A-series chip, and a sleek design, it offers a premium tablet experience.",
+      "category": "tablets",
+      "brand": "Apple",
+      "price": 42499,
+      "mrp": 44199,
+      "stock": 36,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/1.webp",
+        "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/2.webp",
+        "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/3.webp",
+        "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp",
+      "tags": [
+        "electronics",
+        "tablets"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 160,
+      "name": "Samsung Galaxy Tab S8 Plus Grey",
+      "description": "The Samsung Galaxy Tab S8 Plus in Grey is a high-performance Android tablet by Samsung. With a large AMOLED display, powerful processor, and S Pen support, it's ideal for productivity and entertainment.",
+      "category": "tablets",
+      "brand": "Samsung",
+      "price": 50999,
+      "mrp": 58899,
+      "stock": 73,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/1.webp",
+        "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/2.webp",
+        "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/3.webp",
+        "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp",
+      "tags": [
+        "electronics",
+        "tablets"
+      ],
+      "isFeatured": true
+    },
+    {
+      "sourceId": 161,
+      "name": "Samsung Galaxy Tab White",
+      "description": "The Samsung Galaxy Tab in White is a sleek and versatile Android tablet. With a vibrant display, long-lasting battery, and a range of features, it offers a great user experience for various tasks.",
+      "category": "tablets",
+      "brand": "Samsung",
+      "price": 29749,
+      "mrp": 36399,
+      "stock": 34,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/1.webp",
+        "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/2.webp",
+        "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/3.webp",
+        "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/thumbnail.webp",
+      "tags": [
+        "electronics",
+        "tablets"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 100,
+      "name": "Apple Airpods",
+      "description": "The Apple Airpods offer a seamless wireless audio experience. With easy pairing, high-quality sound, and Siri integration, they are perfect for on-the-go listening.",
+      "category": "mobile-accessories",
+      "brand": "Apple",
+      "price": 11049,
+      "mrp": 13099,
+      "stock": 57,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/1.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/2.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp",
+      "tags": [
+        "electronics",
+        "wireless earphones"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 101,
+      "name": "Apple AirPods Max Silver",
+      "description": "The Apple AirPods Max in Silver are premium over-ear headphones with high-fidelity audio, adaptive EQ, and active noise cancellation. Experience immersive sound in style.",
+      "category": "mobile-accessories",
+      "brand": "Apple",
+      "price": 46749,
+      "mrp": 54199,
+      "stock": 18,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/thumbnail.webp",
+      "tags": [
+        "electronics",
+        "over-ear headphones"
+      ],
+      "isFeatured": true
+    },
+    {
+      "sourceId": 104,
+      "name": "Apple iPhone Charger",
+      "description": "The Apple iPhone Charger is a high-quality charger designed for fast and efficient charging of your iPhone. Ensure your device stays powered up and ready to go.",
+      "category": "mobile-accessories",
+      "brand": "Apple",
+      "price": 1699,
+      "mrp": 2099,
+      "stock": 53,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/1.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/thumbnail.webp",
+      "tags": [
+        "electronics",
+        "chargers"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 105,
+      "name": "Apple MagSafe Battery Pack",
+      "description": "The Apple MagSafe Battery Pack is a portable and convenient way to add extra battery life to your MagSafe-compatible iPhone. Attach it magnetically for a secure connection.",
+      "category": "mobile-accessories",
+      "brand": "Apple",
+      "price": 8499,
+      "mrp": 10299,
+      "stock": 14,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/1.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/thumbnail.webp",
+      "tags": [
+        "electronics",
+        "power banks"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 107,
+      "name": "Beats Flex Wireless Earphones",
+      "description": "The Beats Flex Wireless Earphones offer a comfortable and versatile audio experience. With magnetic earbuds and up to 12 hours of battery life, they are ideal for everyday use.",
+      "category": "mobile-accessories",
+      "brand": "Beats",
+      "price": 4249,
+      "mrp": 4599,
+      "stock": 12,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/thumbnail.webp",
+      "tags": [
+        "electronics",
+        "wireless earphones"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 108,
+      "name": "iPhone 12 Silicone Case with MagSafe Plum",
+      "description": "The iPhone 12 Silicone Case with MagSafe in Plum is a stylish and protective case designed for the iPhone 12. It features MagSafe technology for easy attachment of accessories.",
+      "category": "mobile-accessories",
+      "brand": "Apple",
+      "price": 2549,
+      "mrp": 2999,
+      "stock": 49,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/1.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/2.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/3.webp",
+        "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/thumbnail.webp",
+      "tags": [
+        "electronics",
+        "phone accessories"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 93,
+      "name": "Brown Leather Belt Watch",
+      "description": "The Brown Leather Belt Watch is a stylish timepiece with a classic design. Featuring a genuine leather strap and a sleek dial, it adds a touch of sophistication to your look.",
+      "category": "mens-watches",
+      "brand": "Fashion Timepieces",
+      "price": 7649,
+      "mrp": 8199,
+      "stock": 26,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/thumbnail.webp",
+      "tags": [
+        "watches",
+        "leather watches"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 94,
+      "name": "Longines Master Collection",
+      "description": "The Longines Master Collection is an elegant and refined watch known for its precision and craftsmanship. With a timeless design, it's a symbol of luxury and sophistication.",
+      "category": "mens-watches",
+      "brand": "Longines",
+      "price": 127499,
+      "mrp": 154099,
+      "stock": 63,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/thumbnail.webp",
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 95,
+      "name": "Rolex Cellini Date Black Dial",
+      "description": "The Rolex Cellini Date with Black Dial is a classic and prestigious watch. With a black dial and date complication, it exudes sophistication and is a symbol of Rolex's heritage.",
+      "category": "mens-watches",
+      "brand": "Rolex",
+      "price": 764999,
+      "mrp": 839599,
+      "stock": 24,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/thumbnail.webp",
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "isFeatured": true
+    },
+    {
+      "sourceId": 97,
+      "name": "Rolex Datejust",
+      "description": "The Rolex Datejust is an iconic and versatile timepiece with a date window. Known for its timeless design and reliability, it's a symbol of Rolex's watchmaking excellence.",
+      "category": "mens-watches",
+      "brand": "Rolex",
+      "price": 934999,
+      "mrp": 971299,
+      "stock": 22,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/thumbnail.webp",
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 98,
+      "name": "Rolex Submariner Watch",
+      "description": "The Rolex Submariner is a legendary dive watch with a rich history. Known for its durability and water resistance, it's a symbol of adventure and exploration.",
+      "category": "mens-watches",
+      "brand": "Rolex",
+      "price": 1189999,
+      "mrp": 1253299,
+      "stock": 59,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/thumbnail.webp",
+      "tags": [
+        "watches",
+        "luxury watches"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 172,
+      "name": "Blue Women's Handbag",
+      "description": "The Blue Women's Handbag is a stylish and spacious accessory for everyday use. With a vibrant blue color and multiple compartments, it combines fashion and functionality.",
+      "category": "womens-bags",
+      "brand": "Fashionista",
+      "price": 4249,
+      "mrp": 5199,
+      "stock": 61,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/1.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/2.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/thumbnail.webp",
+      "tags": [
+        "fashion accessories",
+        "handbags"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 173,
+      "name": "Heshe Women's Leather Bag",
+      "description": "The Heshe Women's Leather Bag is a luxurious and high-quality leather bag for the sophisticated woman. With a timeless design and durable craftsmanship, it's a versatile accessory.",
+      "category": "womens-bags",
+      "brand": "Heshe",
+      "price": 11049,
+      "mrp": 11499,
+      "stock": 22,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/womens-bags/heshe-women's-leather-bag/1.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/heshe-women's-leather-bag/2.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/heshe-women's-leather-bag/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/womens-bags/heshe-women's-leather-bag/thumbnail.webp",
+      "tags": [
+        "fashion accessories",
+        "leather bags"
+      ],
+      "isFeatured": true
+    },
+    {
+      "sourceId": 174,
+      "name": "Prada Women Bag",
+      "description": "The Prada Women Bag is an iconic designer bag that exudes elegance and luxury. Crafted with precision and featuring the Prada logo, it's a statement piece for fashion enthusiasts.",
+      "category": "womens-bags",
+      "brand": "Prada",
+      "price": 50999,
+      "mrp": 59399,
+      "stock": 59,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/womens-bags/prada-women-bag/1.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/prada-women-bag/2.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/prada-women-bag/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/womens-bags/prada-women-bag/thumbnail.webp",
+      "tags": [
+        "fashion accessories",
+        "designer bags"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 175,
+      "name": "White Faux Leather Backpack",
+      "description": "The White Faux Leather Backpack is a trendy and practical backpack for the modern woman. With a sleek white design and ample storage space, it's perfect for both casual and on-the-go styles.",
+      "category": "womens-bags",
+      "brand": "Urban Chic",
+      "price": 3399,
+      "mrp": 4099,
+      "stock": 20,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/1.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/2.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/thumbnail.webp",
+      "tags": [
+        "fashion accessories",
+        "backpacks"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 176,
+      "name": "Women Handbag Black",
+      "description": "The Women Handbag in Black is a classic and versatile accessory that complements various outfits. With a timeless black color and functional design, it's a must-have in every woman's wardrobe.",
+      "category": "womens-bags",
+      "brand": "Elegance Collection",
+      "price": 5099,
+      "mrp": 5799,
+      "stock": 57,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/womens-bags/women-handbag-black/1.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/women-handbag-black/2.webp",
+        "https://cdn.dummyjson.com/product-images/womens-bags/women-handbag-black/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/womens-bags/women-handbag-black/thumbnail.webp",
+      "tags": [
+        "fashion accessories",
+        "handbags"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 6,
+      "name": "Calvin Klein CK One",
+      "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
+      "category": "fragrances",
+      "brand": "Calvin Klein",
+      "price": 4249,
+      "mrp": 4249,
+      "stock": 75,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp",
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 7,
+      "name": "Chanel Coco Noir Eau de Parfum",
+      "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
+      "category": "fragrances",
+      "brand": "Chanel",
+      "price": 11049,
+      "mrp": 13299,
+      "stock": 36,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp",
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "isFeatured": true
+    },
+    {
+      "sourceId": 8,
+      "name": "Dior J'adore",
+      "description": "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
+      "category": "fragrances",
+      "brand": "Dior",
+      "price": 7649,
+      "mrp": 8999,
+      "stock": 73,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/thumbnail.webp",
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 9,
+      "name": "Dolce Shine Eau de Parfum",
+      "description": "Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It's a joyful and youthful scent.",
+      "category": "fragrances",
+      "brand": "Dolce & Gabbana",
+      "price": 5949,
+      "mrp": 5949,
+      "stock": 34,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/thumbnail.webp",
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 10,
+      "name": "Gucci Bloom Eau de Parfum",
+      "description": "Gucci Bloom by Gucci is a floral and captivating fragrance, with notes of tuberose, jasmine, and Rangoon creeper. It's a modern and romantic scent.",
+      "category": "fragrances",
+      "brand": "Gucci",
+      "price": 6799,
+      "mrp": 7999,
+      "stock": 71,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/1.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/2.webp",
+        "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/thumbnail.webp",
+      "tags": [
+        "fragrances",
+        "perfumes"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 83,
+      "name": "Blue & Black Check Shirt",
+      "description": "The Blue & Black Check Shirt is a stylish and comfortable men's shirt featuring a classic check pattern. Made from high-quality fabric, it's suitable for both casual and semi-formal occasions.",
+      "category": "mens-shirts",
+      "brand": "Fashion Trends",
+      "price": 2549,
+      "mrp": 3099,
+      "stock": 36,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/thumbnail.webp",
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 84,
+      "name": "Gigabyte Aorus Men T-Shirt",
+      "description": "The Gigabyte Aorus Men Tshirt is a cool and casual shirt for gaming enthusiasts. With the Aorus logo and sleek design, it's perfect for expressing your gaming style.",
+      "category": "mens-shirts",
+      "brand": "Gigabyte",
+      "price": 2099,
+      "mrp": 2099,
+      "stock": 73,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/thumbnail.webp",
+      "tags": [
+        "clothing",
+        "men's t-shirts"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 85,
+      "name": "Man Plaid Shirt",
+      "description": "The Man Plaid Shirt is a timeless and versatile men's shirt with a classic plaid pattern. Its comfortable fit and casual style make it a wardrobe essential for various occasions.",
+      "category": "mens-shirts",
+      "brand": "Classic Wear",
+      "price": 2949,
+      "mrp": 3699,
+      "stock": 34,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/thumbnail.webp",
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 86,
+      "name": "Man Short Sleeve Shirt",
+      "description": "The Man Short Sleeve Shirt is a breezy and stylish option for warm days. With a comfortable fit and short sleeves, it's perfect for a laid-back yet polished look.",
+      "category": "mens-shirts",
+      "brand": "Casual Comfort",
+      "price": 1699,
+      "mrp": 1899,
+      "stock": 71,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/thumbnail.webp",
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 87,
+      "name": "Men Check Shirt",
+      "description": "The Men Check Shirt is a classic and versatile shirt featuring a stylish check pattern. Suitable for various occasions, it adds a smart and polished touch to your wardrobe.",
+      "category": "mens-shirts",
+      "brand": "Urban Chic",
+      "price": 2399,
+      "mrp": 2799,
+      "stock": 32,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/2.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/3.webp",
+        "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/thumbnail.webp",
+      "tags": [
+        "clothing",
+        "men's shirts"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 154,
+      "name": "Black Sun Glasses",
+      "description": "The Black Sun Glasses are a classic and stylish choice, featuring a sleek black frame and tinted lenses. They provide both UV protection and a fashionable look.",
+      "category": "sunglasses",
+      "brand": "Fashion Shades",
+      "price": 2549,
+      "mrp": 2699,
+      "stock": 79,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sunglasses/black-sun-glasses/1.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/black-sun-glasses/2.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/black-sun-glasses/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sunglasses/black-sun-glasses/thumbnail.webp",
+      "tags": [
+        "eyewear",
+        "sunglasses"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 155,
+      "name": "Classic Sun Glasses",
+      "description": "The Classic Sun Glasses offer a timeless design with a neutral frame and UV-protected lenses. These sunglasses are versatile and suitable for various occasions.",
+      "category": "sunglasses",
+      "brand": "Fashion Shades",
+      "price": 2099,
+      "mrp": 2299,
+      "stock": 40,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/1.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/2.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/thumbnail.webp",
+      "tags": [
+        "eyewear",
+        "sunglasses"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 156,
+      "name": "Green and Black Glasses",
+      "description": "The Green and Black Glasses feature a bold combination of green and black colors, adding a touch of vibrancy to your eyewear collection. They are both stylish and eye-catching.",
+      "category": "sunglasses",
+      "brand": "Fashion Shades",
+      "price": 2949,
+      "mrp": 2949,
+      "stock": 77,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sunglasses/green-and-black-glasses/1.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/green-and-black-glasses/2.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/green-and-black-glasses/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sunglasses/green-and-black-glasses/thumbnail.webp",
+      "tags": [
+        "eyewear",
+        "sunglasses"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 157,
+      "name": "Party Glasses",
+      "description": "The Party Glasses are designed to add flair to your party outfit. With unique shapes or colorful frames, they're perfect for adding a playful touch to your look during celebrations.",
+      "category": "sunglasses",
+      "brand": "Fashion Fun",
+      "price": 1699,
+      "mrp": 1999,
+      "stock": 38,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sunglasses/party-glasses/1.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/party-glasses/2.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/party-glasses/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sunglasses/party-glasses/thumbnail.webp",
+      "tags": [
+        "eyewear",
+        "party glasses"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 158,
+      "name": "Classic Black Sunglasses",
+      "description": "The Sunglasses offer a classic and simple design with a focus on functionality. These sunglasses provide essential UV protection while maintaining a timeless look.",
+      "category": "sunglasses",
+      "brand": "Fashion Shades",
+      "price": 1949,
+      "mrp": 1949,
+      "stock": 75,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sunglasses/sunglasses/1.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/sunglasses/2.webp",
+        "https://cdn.dummyjson.com/product-images/sunglasses/sunglasses/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sunglasses/sunglasses/thumbnail.webp",
+      "tags": [
+        "eyewear",
+        "sunglasses"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 51,
+      "name": "Boxed Blender",
+      "description": "The Boxed Blender is a powerful and compact blender perfect for smoothies, shakes, and more. Its convenient design and multiple functions make it a versatile kitchen appliance.",
+      "category": "kitchen-accessories",
+      "brand": "Generic",
+      "price": 3399,
+      "mrp": 3699,
+      "stock": 68,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/1.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/2.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/3.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/thumbnail.webp",
+      "tags": [
+        "kitchen appliances",
+        "blenders"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 52,
+      "name": "Carbon Steel Wok",
+      "description": "The Carbon Steel Wok is a versatile cooking pan suitable for stir-frying, sautéing, and deep frying. Its sturdy construction ensures even heat distribution for delicious meals.",
+      "category": "kitchen-accessories",
+      "brand": "Generic",
+      "price": 2549,
+      "mrp": 2799,
+      "stock": 29,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/thumbnail.webp",
+      "tags": [
+        "cookware",
+        "woks"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 61,
+      "name": "Hand Blender",
+      "description": "The Hand Blender is a versatile kitchen appliance for blending, pureeing, and mixing. Its compact design and powerful motor make it a convenient tool for various recipes.",
+      "category": "kitchen-accessories",
+      "brand": "Generic",
+      "price": 2949,
+      "mrp": 3599,
+      "stock": 58,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/hand-blender/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/hand-blender/thumbnail.webp",
+      "tags": [
+        "kitchen appliances",
+        "blenders"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 65,
+      "name": "Lunch Box",
+      "description": "The Lunch Box is a convenient and portable container for packing and carrying your meals. With compartments for different foods, it's perfect for on-the-go dining.",
+      "category": "kitchen-accessories",
+      "brand": "Generic",
+      "price": 1099,
+      "mrp": 1299,
+      "stock": 54,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/thumbnail.webp",
+      "tags": [
+        "kitchen tools",
+        "storage"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 66,
+      "name": "Microwave Oven",
+      "description": "The Microwave Oven is a versatile kitchen appliance for quick and efficient cooking, reheating, and defrosting. Its compact size makes it suitable for various kitchen setups.",
+      "category": "kitchen-accessories",
+      "brand": "Generic",
+      "price": 7649,
+      "mrp": 8799,
+      "stock": 15,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/1.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/2.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/3.webp",
+        "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/thumbnail.webp",
+      "tags": [
+        "kitchen appliances",
+        "microwaves"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 43,
+      "name": "Decoration Swing",
+      "description": "The Decoration Swing is a charming addition to your home decor. Crafted with intricate details, it adds a touch of elegance and whimsy to any room.",
+      "category": "home-decoration",
+      "brand": "Generic",
+      "price": 5099,
+      "mrp": 5699,
+      "stock": 76,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/1.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/2.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/thumbnail.webp",
+      "tags": [
+        "home decor",
+        "swing"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 44,
+      "name": "Family Tree Photo Frame",
+      "description": "The Family Tree Photo Frame is a sentimental and stylish way to display your cherished family memories. With multiple photo slots, it tells the story of your loved ones.",
+      "category": "home-decoration",
+      "brand": "Generic",
+      "price": 2549,
+      "mrp": 2999,
+      "stock": 37,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/thumbnail.webp",
+      "tags": [
+        "home decor",
+        "photo frame"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 45,
+      "name": "House Showpiece Plant",
+      "description": "The House Showpiece Plant is an artificial plant that brings a touch of nature to your home without the need for maintenance. It adds greenery and style to any space.",
+      "category": "home-decoration",
+      "brand": "Generic",
+      "price": 3399,
+      "mrp": 3699,
+      "stock": 74,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/1.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/2.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/3.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/thumbnail.webp",
+      "tags": [
+        "home decor",
+        "artificial plants"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 46,
+      "name": "Plant Pot",
+      "description": "The Plant Pot is a stylish container for your favorite plants. With a sleek design, it complements your indoor or outdoor garden, adding a modern touch to your plant display.",
+      "category": "home-decoration",
+      "brand": "Generic",
+      "price": 1249,
+      "mrp": 1399,
+      "stock": 35,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/1.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/2.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/3.webp",
+        "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/thumbnail.webp",
+      "tags": [
+        "home decor",
+        "plant accessories"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 47,
+      "name": "Table Lamp",
+      "description": "The Table Lamp is a functional and decorative lighting solution for your living space. With a modern design, it provides both ambient and task lighting, enhancing the atmosphere.",
+      "category": "home-decoration",
+      "brand": "Generic",
+      "price": 4249,
+      "mrp": 4599,
+      "stock": 72,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/thumbnail.webp",
+      "tags": [
+        "home decor",
+        "lighting"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 140,
+      "name": "Basketball",
+      "description": "The Basketball is a standard ball used in basketball games. It is designed for dribbling, shooting, and passing in the game of basketball, suitable for both indoor and outdoor play.",
+      "category": "sports-accessories",
+      "brand": "Generic",
+      "price": 1249,
+      "mrp": 1399,
+      "stock": 17,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sports-accessories/basketball/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sports-accessories/basketball/thumbnail.webp",
+      "tags": [
+        "sports equipment",
+        "basketball"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 143,
+      "name": "Cricket Bat",
+      "description": "The Cricket Bat is an essential piece of cricket equipment used by batsmen to hit the cricket ball. It is made of wood and comes in various sizes and designs.",
+      "category": "sports-accessories",
+      "brand": "Generic",
+      "price": 2549,
+      "mrp": 2699,
+      "stock": 52,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-bat/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-bat/thumbnail.webp",
+      "tags": [
+        "sports equipment",
+        "cricket"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 144,
+      "name": "Cricket Helmet",
+      "description": "The Cricket Helmet is a protective headgear worn by cricket players, especially batsmen and wicketkeepers. It provides protection against fast bowling and bouncers.",
+      "category": "sports-accessories",
+      "brand": "Generic",
+      "price": 3799,
+      "mrp": 4299,
+      "stock": 13,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/1.webp",
+        "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/2.webp",
+        "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/3.webp",
+        "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/4.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/thumbnail.webp",
+      "tags": [
+        "sports equipment",
+        "cricket"
+      ],
+      "isFeatured": true
+    },
+    {
+      "sourceId": 149,
+      "name": "Iron Golf",
+      "description": "The Iron Golf is a type of golf club designed for various golf shots. It features a solid metal head and is used for approach shots, chipping, and other golfing techniques.",
+      "category": "sports-accessories",
+      "brand": "Generic",
+      "price": 4249,
+      "mrp": 4599,
+      "stock": 46,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sports-accessories/iron-golf/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sports-accessories/iron-golf/thumbnail.webp",
+      "tags": [
+        "sports equipment",
+        "golf"
+      ],
+      "isFeatured": false
+    },
+    {
+      "sourceId": 152,
+      "name": "Tennis Racket",
+      "description": "The Tennis Racket is an essential piece of equipment used in the sport of tennis. It features a frame with strings and a grip, allowing players to hit the tennis ball.",
+      "category": "sports-accessories",
+      "brand": "Generic",
+      "price": 4249,
+      "mrp": 5299,
+      "stock": 5,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-racket/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-racket/thumbnail.webp",
+      "tags": [
+        "sports equipment",
+        "tennis"
+      ],
+      "isFeatured": false
+    }
+  ]
+}
