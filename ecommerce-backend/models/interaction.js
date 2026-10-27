@@ -20,6 +20,8 @@ const interactionSchema = new mongoose.Schema(
 
 // Serves both the 30-minute de-duplication lookup and per-user history reads.
 interactionSchema.index({ user: 1, product: 1, event: 1, createdAt: -1 });
+// Serves the "recent engagement" window of the popularity ranking.
+interactionSchema.index({ createdAt: -1 });
 
 const Interaction = mongoose.model('Interaction', interactionSchema);
 export default Interaction;
