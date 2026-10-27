@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# env files (commit only .env.example)
+.env
+.env.*
+!.env.example
+
+# builds & reports
+dist/
+build/
+coverage/
+playwright-report/
+test-results/
+blob-report/
+e2e/.auth/
+
+# logs & OS
+*.log
+npm-debug.log*
+.DS_Store
+.vscode/
+.idea/
