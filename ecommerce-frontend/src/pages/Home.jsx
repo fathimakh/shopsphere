@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { FiPackage, FiSearch, FiSliders } from 'react-icons/fi'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigationType } from 'react-router-dom'
 import ActiveFilters from '../components/ActiveFilters'
 import EmptyState from '../components/EmptyState'
 import ErrorMessage from '../components/ErrorMessage'
@@ -71,9 +71,11 @@ export default function Home() {
   const recommendations = useSelector(selectRecommendations)
   const { filters, apiParams, filterCount, hasActiveFilters, updateFilters, setPage, clearFilters } =
     useProductQuery()
+  const navigationType = useNavigationType()
   const [drawerOpen, setDrawerOpen] = useState(false)
   const catalogueRef = useRef(null)
   const headingRef = useRef(null)
+  const handledFilterKey = useRef(null)
 
   // The URL drives the product request; a newer query aborts the one still in flight.
   const loadProducts = useCallback(() => dispatch(fetchProducts(apiParams)), [dispatch, apiParams])
@@ -99,10 +101,29 @@ export default function Home() {
 
   const closeDrawer = useCallback(() => setDrawerOpen(false), [])
 
-  const scrollToCatalogue = () => {
+  const scrollToCatalogue = useCallback(() => {
     catalogueRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     headingRef.current?.focus({ preventScroll: true })
-  }
+  }, [])
+
+  // A search or filter that arrives by navigation (navbar search, breadcrumb, tag link) would
+  // otherwise update results hidden below the hero, so bring the catalogue into view. Controls
+  // inside the catalogue are already on screen, and Back/Forward keeps the restored scroll.
+  const filterKey = hasActiveFilters ? JSON.stringify({ ...filters, page: undefined }) : ''
+  useEffect(() => {
+    if (!filterKey || filterKey === handledFilterKey.current) return undefined
+    if (navigationType === 'POP') {
+      handledFilterKey.current = filterKey
+      return undefined
+    }
+    // Deferred so it runs after the router's scroll-to-top for newly visited pages.
+    const timer = setTimeout(() => {
+      handledFilterKey.current = filterKey
+      const top = catalogueRef.current?.getBoundingClientRect().top ?? 0
+      if (top > window.innerHeight * 0.6) scrollToCatalogue()
+    }, 0)
+    return () => clearTimeout(timer)
+  }, [filterKey, navigationType, scrollToCatalogue])
 
   const handleSearch = useCallback(
     // Refining an existing search replaces the history entry, so Back doesn't step through every pause.

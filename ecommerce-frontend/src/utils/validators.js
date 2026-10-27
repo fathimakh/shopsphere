@@ -3,7 +3,8 @@
 // form values and returns `{ field: message }` for invalid fields only (empty object = valid).
 
 export const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
-const PHONE_PATTERN = /^\+?[\d\s()-]{7,20}$/
+// Same shape as the API's rule: optional +, digits separated by spaces or dashes.
+const PHONE_PATTERN = /^\+?\d[\d\s-]{5,18}\d$/
 const POSTAL_CODE_PATTERN = /^[A-Za-z0-9][A-Za-z0-9\s-]{2,9}$/
 const HTTP_URL_PATTERN = /^https?:\/\/[^\s]+$/i
 
@@ -16,7 +17,8 @@ export const LIMITS = {
   productName: { min: 2, max: 120 },
   description: { min: 10, max: 2000 },
   review: { min: 3, max: 1000 },
-  addressLine: { min: 2, max: 120 },
+  street: { min: 3, max: 120 },
+  addressPart: { min: 2, max: 60 },
 }
 
 const trimmed = (value) => String(value ?? '').trim()
@@ -102,26 +104,26 @@ export function validateShippingAddress(values) {
   return collect({
     fullName: text(values.fullName, 'Full name', LIMITS.contactName),
     phone: phone(values.phone),
-    street: text(values.street, 'Street address', LIMITS.addressLine),
-    city: text(values.city, 'City', LIMITS.addressLine),
-    state: text(values.state, 'State', LIMITS.addressLine),
+    street: text(values.street, 'Street address', LIMITS.street),
+    city: text(values.city, 'City', LIMITS.addressPart),
+    state: text(values.state, 'State', LIMITS.addressPart),
     postalCode: postalCode(values.postalCode),
-    country: text(values.country, 'Country', LIMITS.addressLine),
+    country: text(values.country, 'Country', LIMITS.addressPart),
   })
 }
 
 /** Profile details — contact and address fields are optional but must be valid when present. */
 export function validateProfile(values) {
-  const optionalLine = (value, label) => text(value, label, { ...LIMITS.addressLine, required: false })
+  const optional = (value, label, limits) => text(value, label, { ...limits, required: false })
   return collect({
     name: text(values.name, 'Name', LIMITS.name),
     email: email(values.email),
     phone: phone(values.phone, { required: false }),
-    street: optionalLine(values.street, 'Street address'),
-    city: optionalLine(values.city, 'City'),
-    state: optionalLine(values.state, 'State'),
+    street: optional(values.street, 'Street address', LIMITS.street),
+    city: optional(values.city, 'City', LIMITS.addressPart),
+    state: optional(values.state, 'State', LIMITS.addressPart),
     postalCode: postalCode(values.postalCode, { required: false }),
-    country: optionalLine(values.country, 'Country'),
+    country: optional(values.country, 'Country', LIMITS.addressPart),
   })
 }
 

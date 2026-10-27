@@ -30,7 +30,8 @@ export default function Contact() {
     validateContact,
   )
   const [sending, setSending] = useState(false)
-  const [submitError, setSubmitError] = useState('')
+  // { message, fieldErrors? } from the last failed send.
+  const [submitError, setSubmitError] = useState(null)
   const [successMessage, setSuccessMessage] = useState('')
   const formRef = useRef(null)
   const successHeadingRef = useRef(null)
@@ -40,10 +41,15 @@ export default function Contact() {
     if (successMessage) successHeadingRef.current?.focus()
   }, [successMessage])
 
+  // After a rejected send has re-rendered (inputs enabled again), focus the first field the server flagged.
+  useEffect(() => {
+    if (submitError?.fieldErrors) focusFirstInvalid(formRef.current, submitError.fieldErrors)
+  }, [submitError])
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (sending) return
-    setSubmitError('')
+    setSubmitError(null)
 
     const clientErrors = validateAll()
     if (Object.keys(clientErrors).length > 0) {
@@ -58,12 +64,11 @@ export default function Contact() {
       setSuccessMessage(data?.message || "Thanks for reaching out — we'll get back to you soon.")
     } catch (error) {
       const mapped = setServerErrors(getFieldErrors(error))
-      if (Object.keys(mapped).length > 0) {
-        setSubmitError('Please correct the highlighted fields and try again.')
-        focusFirstInvalid(formRef.current, mapped)
-      } else {
-        setSubmitError(getErrorMessage(error))
-      }
+      setSubmitError(
+        Object.keys(mapped).length > 0
+          ? { message: 'Please correct the highlighted fields and try again.', fieldErrors: mapped }
+          : { message: getErrorMessage(error) },
+      )
     } finally {
       setSending(false)
     }
@@ -72,7 +77,7 @@ export default function Contact() {
   const startNewMessage = () => {
     reset({ ...EMPTY_MESSAGE, name: user?.name ?? values.name, email: user?.email ?? values.email })
     setSuccessMessage('')
-    setSubmitError('')
+    setSubmitError(null)
   }
 
   const messageLength = values.message.length
@@ -116,7 +121,7 @@ export default function Contact() {
             <form ref={formRef} noValidate onSubmit={handleSubmit} aria-busy={sending} className="space-y-5">
               <h2 className="text-xl font-bold">Send us a message</h2>
 
-              {submitError && <ErrorMessage title="Your message wasn't sent" message={submitError} />}
+              {submitError && <ErrorMessage title="Your message wasn't sent" message={submitError.message} />}
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <FormField label="Your name" htmlFor={nameProps.id} error={errors.name} errorId={errorId('name')}>

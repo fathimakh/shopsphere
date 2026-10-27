@@ -39,10 +39,18 @@ function addressFromUser(user) {
 
 const trimValues = (values) => Object.fromEntries(Object.entries(values).map(([key, value]) => [key, value.trim()]))
 
-/** Turns a rejected placeOrder into the banner shown above the form. */
-function describeOrderError(error, mappedFieldCount) {
-  if (mappedFieldCount > 0 && mappedFieldCount === Object.keys(error.fieldErrors ?? {}).length) {
-    return { title: 'Please check your shipping address', message: 'Fix the highlighted fields and try again.' }
+/**
+ * Turns a rejected placeOrder into the banner shown above the form. `mapped` holds the server
+ * field errors that belong to the address form (they are also shown inline and get focus).
+ */
+function describeOrderError(error, mapped) {
+  const mappedCount = Object.keys(mapped).length
+  if (mappedCount > 0 && mappedCount === Object.keys(error.fieldErrors ?? {}).length) {
+    return {
+      title: 'Please check your shipping address',
+      message: 'Fix the highlighted fields and try again.',
+      fieldErrors: mapped,
+    }
   }
   if (error.status === 409) {
     return {
@@ -106,8 +114,12 @@ export default function Checkout() {
   const isPlacing = submitted || placing.status === 'loading'
   const hasSavedAddress = Boolean(user?.address?.street)
 
+  // Runs after the failed submit has re-rendered, i.e. once the inputs are enabled again:
+  // focus the first field the server rejected, otherwise the error banner.
   useEffect(() => {
-    if (orderError) errorRef.current?.focus()
+    if (!orderError) return
+    if (orderError.fieldErrors) focusFirstInvalid(formRef.current, orderError.fieldErrors)
+    else errorRef.current?.focus()
   }, [orderError])
 
   if (items.length === 0 && !submitted) return <Navigate to="/cart" replace />
@@ -137,8 +149,7 @@ export default function Checkout() {
     } catch (error) {
       setSubmitted(false)
       const mapped = setServerErrors(error.fieldErrors)
-      setOrderError(describeOrderError(error, Object.keys(mapped).length))
-      focusFirstInvalid(formRef.current, mapped)
+      setOrderError(describeOrderError(error, mapped))
     }
   }
 

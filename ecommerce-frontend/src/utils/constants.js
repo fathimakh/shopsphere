@@ -8,6 +8,9 @@ export const SHIPPING_FEE = 49
 
 export const PRODUCTS_PER_PAGE = 12
 
+/** Most units of one product per order line (the API rejects order quantities above 100). */
+export const MAX_QUANTITY_PER_ITEM = 100
+
 /** Allowed `sort` values for GET /products, in the order shown in the UI. */
 export const SORT_OPTIONS = [
   { value: 'newest', label: 'Newest' },
@@ -80,5 +83,5 @@ export const RECOMMENDATION_SOURCES = {
 /** Demo accounts seeded by the backend (contract §5) so evaluators can sign in quickly. */
 export const DEMO_ACCOUNTS = [
   { label: 'Demo shopper', email: 'demo@shopsphere.dev', password: 'Demo@1234' },
-  { label: 'Admin', email: 'admin@shopsphere.dev', password: 'Admin@123' },
+  { label: 'Admin demo', email: 'admin@shopsphere.dev', password: 'Admin@123' },
 ]
