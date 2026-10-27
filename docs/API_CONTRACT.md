@@ -15,7 +15,7 @@ Module-5/
 ├── README.md                    # project overview, live URLs, rubric map, setup
 ├── render.yaml                  # Render blueprint (API web service + static site)
 ├── docs/                        # API_CONTRACT.md, screenshots/, extra docs
-├── e2e/                         # Playwright end-to-end tests (own package.json)
+├── e2e/                         # Playwright browser smoke test against the running app (own package.json)
 ├── ecommerce-backend/           # exact PDF structure + extras listed below
 └── ecommerce-frontend/          # exact PDF structure + extras listed below
 ```
@@ -298,20 +298,24 @@ product_id,u_665f1c…,u_665f1d…,…
 user_id,product_id,event,weight,timestamp
 ```
 
-**Scored output imported back** (`rapidminer/output/product_similarity.csv`, produced by RapidMiner's
-*Similarity to Data* operator):
+**Scored output imported back** (`rapidminer/output/product_similarity.csv`, written by
+`rapidminer/processes/product_similarity.rmp`: *Cross Distances* with *CosineSimilarity*, columns renamed):
 ```
 FIRST_ID,SECOND_ID,SIMILARITY
 665f2a…,665f2b…,0.8165
 ```
-The importer is case-insensitive on headers, also accepts `product_id,similar_product_id,score`, ignores rows
-whose ids are unknown or whose score ≤ 0, stores both directions, and keeps the top 20 neighbours per product.
+The importer is case-insensitive on headers and also accepts `product_id,similar_product_id,score` and Cross
+Distances' own `request,document,distance`; `,` or `;` separated. It ignores rows whose ids are unknown, self
+pairs and scores ≤ 0, stores both directions, and keeps the top 20 neighbours per product.
 
-**Live AI Hub contract** (when `RAPIDMINER_SCORING_URL` is set): `POST` JSON
-`{ "user_id": "…", "items": [{ "product_id": "…", "weight": 5 }], "limit": 8 }` with
-`Authorization: Bearer $RAPIDMINER_AUTH_TOKEN` (or basic auth from username/password). The response may be a JSON
-array or `{ data: [...] }` of rows with a product id (`product_id` | `SECOND_ID` | `id`) and a score
-(`score` | `SIMILARITY` | `confidence`). Unknown ids are dropped.
+**Live AI Hub contract** (when `RAPIDMINER_SCORING_URL` is set; process `rapidminer/processes/recommend_for_user.rmp`):
+`POST` JSON
+`{ "user_id": "…", "limit": 8, "items": [{ "product_id": "…", "weight": 5 }], "data": [{ "user_id": "…", "product_id": "…", "weight": 5 }] }`
+(`data` = rows for an AI Hub real-time scoring deployment, `items` = for a custom adapter) with
+`Authorization: Bearer $RAPIDMINER_AUTH_TOKEN` (or basic auth from username/password), timeout
+`RAPIDMINER_TIMEOUT_MS`. The response may be a JSON array or `{ data | results | result: [...] }` of rows with a
+product id (`product_id` | `SECOND_ID` | `id` | `item`) and a score (`score` | `SIMILARITY` | `confidence` |
+`prediction`). Unknown ids are dropped; any failure falls through to the next source.
 
 ---
 
@@ -322,7 +326,9 @@ array or `{ data: [...] }` of rows with a product id (`product_id` | `SECOND_ID`
 * Users: **admin** `admin@shopsphere.dev` / `Admin@123`; **demo shopper** `demo@shopsphere.dev` / `Demo@1234`;
   ~15 synthetic shoppers with category "personas" who generate views, cart adds, reviews and orders in assorted
   statuses, so the recommendation engine has real signal. The demo shopper has a few interactions + one order.
-* `npm run seed` wipes and re-creates; `npm run seed -- --keep-users` style flags optional.
+* `npm run seed` wipes and re-creates everything. Seeded users and products get **fixed ObjectIds**
+  (`66f1a00001…` users, `66f1a00002…` products), so `rapidminer/data/*.csv` and any RapidMiner model built from
+  them match every freshly seeded database.
 
 ---
 
