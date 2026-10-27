@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens. Tailwind v4 turns every --color-* / --font-* variable declared in
+ * @theme into utilities (bg-brand-700, text-accent-600, font-sans, …).
+ * Palette: deep teal "sphere" brand, saffron accent, warm stone neutrals.
+ */
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --color-brand-50: #effaf8;
+  --color-brand-100: #d7f2ec;
+  --color-brand-200: #b0e4d9;
+  --color-brand-300: #7fd0c1;
+  --color-brand-400: #4db4a5;
+  --color-brand-500: #2f998b;
+  --color-brand-600: #237b71;
+  --color-brand-700: #1f635c;
+  --color-brand-800: #1d504b;
+  --color-brand-900: #1b433f;
+  --color-brand-950: #0b2725;
+
+  --color-accent-50: #fff8ed;
+  --color-accent-100: #ffefd4;
+  --color-accent-200: #ffdba8;
+  --color-accent-300: #ffc070;
+  --color-accent-400: #ff9b37;
+  --color-accent-500: #fd7e10;
+  --color-accent-600: #ee6206;
+  --color-accent-700: #c54a07;
+  --color-accent-800: #9c3b0e;
+  --color-accent-900: #7e320f;
+
+  --color-canvas: #faf8f5;
+
+  --animate-slide-in-right: slide-in-right 220ms ease-out;
+  --animate-fade-in: fade-in 180ms ease-out;
+  --animate-shimmer: shimmer 1.4s linear infinite;
+
+  @keyframes slide-in-right {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-stone-800 antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply tracking-tight text-stone-900;
+  }
+
+  /* One consistent, clearly visible keyboard focus ring across the app. */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+
+  /* Native <dialog> is used for modals and drawers. */
+  dialog::backdrop {
+    @apply bg-stone-950/45 backdrop-blur-[2px];
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 1ms !important;
+      transition-duration: 1ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply rounded-2xl border border-stone-200/80 bg-white shadow-[0_1px_2px_rgb(28_25_23/0.04)];
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors duration-150 select-none disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply bg-brand-700 text-white shadow-sm hover:bg-brand-800 active:bg-brand-900;
+  }
+  .btn-accent {
+    @apply bg-accent-500 text-white shadow-sm hover:bg-accent-600 active:bg-accent-700;
+  }
+  .btn-secondary {
+    @apply border border-stone-300 bg-white text-stone-800 hover:border-stone-400 hover:bg-stone-50;
+  }
+  .btn-ghost {
+    @apply text-stone-700 hover:bg-stone-100;
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white shadow-sm hover:bg-red-700;
+  }
+  .btn-sm {
+    @apply rounded-lg px-3 py-1.5 text-xs;
+  }
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+  .btn-icon {
+    @apply inline-flex size-10 items-center justify-center rounded-xl text-stone-700 transition-colors hover:bg-stone-100 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Form controls */
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-stone-800;
+  }
+  .input {
+    @apply block w-full rounded-xl border border-stone-300 bg-white px-3.5 py-2.5 text-sm text-stone-900 shadow-[inset_0_1px_1px_rgb(28_25_23/0.04)] transition placeholder:text-stone-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-600/15 focus:outline-none disabled:bg-stone-100 aria-invalid:border-red-500 aria-invalid:focus:ring-red-500/15;
+  }
+  .checkbox {
+    @apply size-4 rounded border-stone-300 accent-brand-700;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap;
+  }
+
+  .link {
+    @apply font-semibold text-brand-700 underline-offset-4 hover:text-brand-800 hover:underline;
+  }
+
+  /* Shimmering placeholder used by the skeleton loaders. */
+  .skeleton {
+    @apply animate-shimmer rounded-lg bg-[linear-gradient(90deg,var(--color-stone-200)_0%,var(--color-stone-100)_50%,var(--color-stone-200)_100%)] bg-size-[200%_100%];
+  }
+
+  /* Thin, unobtrusive scrollbar for horizontal carousels and table wrappers. */
+  .scroll-x {
+    @apply overflow-x-auto overscroll-x-contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-stone-300) transparent;
+  }
+}

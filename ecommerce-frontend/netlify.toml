@@ -1,0 +1,20 @@
+# Netlify: set "Base directory" to ecommerce-frontend and add VITE_API_URL
+# (e.g. https://shopsphere-api.onrender.com/api) under Site settings → Environment variables.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Hashed build assets never change, so let browsers cache them for a year.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Single-page app: serve index.html for every client-side route (/product/123, /admin/orders, …).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
