@@ -14,8 +14,8 @@ const EMPTY_MESSAGE = { name: '', email: '', subject: '', message: '' }
 const MESSAGE_MAX = LIMITS.message.max
 
 const CONTACT_DETAILS = [
-  { icon: FiMail, label: 'Email', value: 'support@shopsphere.dev', href: 'mailto:support@shopsphere.dev' },
-  { icon: FiPhone, label: 'Phone', value: '+91 80 4000 1234', href: 'tel:+918040001234' },
+  { icon: FiMail, label: 'Email', value: 'support@shopsphere.dev' },
+  { icon: FiPhone, label: 'Phone', value: '+91 80 4000 1234' },
   { icon: FiClock, label: 'Support hours', value: 'Mon – Sat, 9 am – 7 pm IST' },
   { icon: FiMapPin, label: 'Office', value: 'ShopSphere, 4th Floor, MG Road, Kochi, Kerala 682016' },
 ]
@@ -193,20 +193,14 @@ export default function Contact() {
           <div className="rounded-2xl bg-brand-900 p-6 text-brand-50">
             <h2 className="text-lg font-bold text-white">Get in touch</h2>
             <ul className="mt-4 space-y-4">
-              {CONTACT_DETAILS.map(({ icon: Icon, label, value, href }) => (
+              {CONTACT_DETAILS.map(({ icon: Icon, label, value }) => (
                 <li key={label} className="flex gap-3">
                   <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/10 text-accent-300">
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
                   <div className="min-w-0 text-sm">
                     <p className="font-semibold text-white">{label}</p>
-                    {href ? (
-                      <a href={href} className="break-words text-brand-100 underline-offset-4 hover:underline">
-                        {value}
-                      </a>
-                    ) : (
-                      <p className="text-brand-100">{value}</p>
-                    )}
+                    <p className="break-words text-brand-100">{value}</p>
                   </div>
                 </li>
               ))}
