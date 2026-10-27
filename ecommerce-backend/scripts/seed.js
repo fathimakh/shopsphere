@@ -12,6 +12,7 @@
  * A fixed PRNG seed makes every run produce the same data.
  */
 import { readFile } from 'node:fs/promises';
+import mongoose from 'mongoose';
 import env from '../config/env.js';
 import { connectDB, disconnectDB } from '../config/dbConnection.js';
 import ContactMessage from '../models/contactMessage.js';
@@ -54,6 +55,14 @@ const sample = (items, count) => {
   while (pool.length && picked.length < count) picked.push(pool.splice(Math.floor(random() * pool.length), 1)[0]);
   return picked;
 };
+/**
+ * Fixed ObjectIds for seeded users and products, so every seed produces the same ids. The
+ * committed RapidMiner exports (rapidminer/data/) and any similarity model RapidMiner builds
+ * from them therefore stay valid for every freshly seeded store, local or deployed.
+ */
+const ID_KIND = { user: '01', product: '02' };
+const seedObjectId = (kind, n) => new mongoose.Types.ObjectId(`66f1a000${ID_KIND[kind]}${n.toString(16).padStart(14, '0')}`);
+
 const daysAgo = (days) => new Date(NOW - days * DAY_MS - randomInt(0, 20) * HOUR_MS);
 
 // ---------------------------------------------------------------------------
@@ -184,13 +193,14 @@ const createProducts = async (catalogue) => {
   // Staggered creation dates make "Newest" sorting meaningful.
   const docs = catalogue.map(({ sourceId, ...product }, index) => {
     const createdAt = daysAgo(90 - index);
-    return { ...product, createdAt, updatedAt: createdAt };
+    return { _id: seedObjectId('product', index + 1), ...product, createdAt, updatedAt: createdAt };
   });
   return Product.insertMany(docs);
 };
 
 const createUsers = async () => {
   const admin = await User.create({
+    _id: seedObjectId('user', 1),
     name: 'Store Admin',
     email: env.seedAdminEmail,
     password: env.seedAdminPassword,
@@ -199,14 +209,16 @@ const createUsers = async () => {
     address: addressFor('Kochi', 'Kerala', '682016'),
   });
   const demo = await User.create({
+    _id: seedObjectId('user', 2),
     ...DEMO_SHOPPER,
     phone: '+91 98765 43210',
     address: { street: '12, Marine Drive', city: 'Kochi', state: 'Kerala', postalCode: '682031', country: 'India' },
   });
   const shoppers = [];
-  for (const [name, persona, city, state, postalCode] of SHOPPERS) {
+  for (const [index, [name, persona, city, state, postalCode]] of SHOPPERS.entries()) {
     const email = `${name.toLowerCase().replace(/\s+/g, '.')}@example.com`;
     const user = await User.create({
+      _id: seedObjectId('user', index + 3),
       name,
       email,
       password: SHOPPER_PASSWORD,
