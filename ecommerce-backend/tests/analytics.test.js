@@ -284,6 +284,12 @@ describe('POST /api/analytics/import', () => {
     assert.equal(await ProductSimilarity.countDocuments({ batchId: res.body.batchId }), 2);
   });
 
+  it('accepts un-renamed Cross Distances output (request, document, distance)', async () => {
+    const csv = `request,document,distance\n${products.earbuds._id},${products.charger._id},0.5\n`;
+    const res = await importCsv(csv).expect(200);
+    assert.equal(res.body.imported, 1);
+  });
+
   it('DELETE removes the imported model', async () => {
     const res = await api().delete('/api/analytics/import').set(bearer(admin.token)).expect(200);
     assert.match(res.body.message, /removed/);

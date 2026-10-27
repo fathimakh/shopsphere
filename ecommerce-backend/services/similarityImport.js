@@ -11,10 +11,13 @@ import { TOP_NEIGHBOURS } from './similarity.js';
  */
 
 // Accepted header names, matched case-insensitively: RapidMiner's own column names first.
+// RapidMiner "Similarity to Data" names its columns FIRST_ID / SECOND_ID / SIMILARITY and
+// "Cross Distances" request / document / distance (the distance holds the similarity when
+// "compute similarities" is on), so un-renamed RapidMiner output imports as well.
 const COLUMN_ALIASES = {
-  first: ['first_id', 'product_id'],
-  second: ['second_id', 'similar_product_id'],
-  score: ['similarity', 'score'],
+  first: ['first_id', 'product_id', 'request'],
+  second: ['second_id', 'similar_product_id', 'document'],
+  score: ['similarity', 'score', 'distance'],
 };
 
 const EXPECTED_HEADER = 'FIRST_ID,SECOND_ID,SIMILARITY (or product_id,similar_product_id,score)';

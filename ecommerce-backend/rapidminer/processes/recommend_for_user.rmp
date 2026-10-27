@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.7.000">
+  <context>
+    <input/>
+    <output/>
+    <macros>
+      <macro>
+        <key>model_file</key>
+        <value>/path/to/ecommerce-backend/rapidminer/output/product_similarity.csv</value>
+      </macro>
+      <macro>
+        <key>limit</key>
+        <value>24</value>
+      </macro>
+    </macros>
+  </context>
+  <operator activated="true" class="process" compatibility="9.7.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="UTF-8"/>
+    <process expanded="true">
+      <operator activated="true" class="multiply" compatibility="9.7.000" expanded="true" height="103" name="Copy history" width="90" x="179" y="85">
+        <description align="center" color="transparent" colored="false" width="126">Input port 1 receives the shopper's history posted by the API ("data": rows of user_id, product_id, weight). It is joined with the model and also used to exclude products the shopper already knows.</description>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.7.000" expanded="true" height="68" name="Read similarity model" width="90" x="45" y="238">
+        <parameter key="csv_file" value="%{model_file}"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value='"'/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="first_row_as_names" value="true"/>
+        <parameter key="encoding" value="UTF-8"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="FIRST_ID.true.polynominal.attribute"/>
+          <parameter key="1" value="SECOND_ID.true.polynominal.attribute"/>
+          <parameter key="2" value="SIMILARITY.true.real.attribute"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <description align="center" color="transparent" colored="false" width="126">product_similarity.csv written by product_similarity.rmp (upload it next to the deployment).</description>
+      </operator>
+      <operator activated="true" class="join" compatibility="9.7.000" expanded="true" height="82" name="History x neighbours" width="90" x="313" y="85">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="product_id" value="FIRST_ID"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+        <description align="center" color="transparent" colored="false" width="126">Every product in the history paired with its most similar products (SECOND_ID).</description>
+      </operator>
+      <operator activated="true" class="generate_attributes" compatibility="9.7.000" expanded="true" height="82" name="weight x similarity" width="90" x="447" y="85">
+        <list key="function_descriptions">
+          <parameter key="weighted" value="weight * SIMILARITY"/>
+        </list>
+        <parameter key="keep_all" value="true"/>
+        <description align="center" color="transparent" colored="false" width="126">Contribution of history product i to candidate j: w(u,i) * sim(i,j).</description>
+      </operator>
+      <operator activated="true" class="aggregate" compatibility="9.7.000" expanded="true" height="82" name="Score per candidate" width="90" x="581" y="85">
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="regular_expression" value=""/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="use_default_aggregation" value="false"/>
+        <parameter key="default_aggregation_function" value="average"/>
+        <list key="aggregation_attributes">
+          <parameter key="weighted" value="sum"/>
+        </list>
+        <parameter key="group_by_attributes" value="SECOND_ID"/>
+        <parameter key="count_all_combinations" value="false"/>
+        <parameter key="only_distinct" value="false"/>
+        <parameter key="ignore_missings" value="true"/>
+        <description align="center" color="transparent" colored="false" width="126">score(u,j) = sum over the history of w(u,i) * sim(i,j) - the same formula as the API's built-in engine.</description>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.7.000" expanded="true" height="82" name="Candidate id" width="90" x="715" y="85">
+        <parameter key="attribute_name" value="SECOND_ID"/>
+        <parameter key="target_role" value="id"/>
+        <list key="set_additional_roles">
+        </list>
+        <description align="center" color="transparent" colored="false" width="126">Set Minus compares id attributes.</description>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.7.000" expanded="true" height="82" name="History id" width="90" x="313" y="238">
+        <parameter key="attribute_name" value="product_id"/>
+        <parameter key="target_role" value="id"/>
+        <list key="set_additional_roles">
+        </list>
+        <description align="center" color="transparent" colored="false" width="126">Set Minus compares id attributes.</description>
+      </operator>
+      <operator activated="true" class="set_minus" compatibility="9.7.000" expanded="true" height="82" name="Remove known products" width="90" x="849" y="85">
+        <description align="center" color="transparent" colored="false" width="126">Drops candidates the shopper has already viewed, added or bought.</description>
+      </operator>
+      <operator activated="true" class="sort" compatibility="9.7.000" expanded="true" height="82" name="Best first" width="90" x="983" y="85">
+        <parameter key="attribute_name" value="sum(weighted)"/>
+        <parameter key="sorting_direction" value="decreasing"/>
+        <description align="center" color="transparent" colored="false" width="126">Highest score first.</description>
+      </operator>
+      <operator activated="true" class="filter_example_range" compatibility="9.7.000" expanded="true" height="82" name="Top N" width="90" x="1117" y="85">
+        <parameter key="first_example" value="1"/>
+        <parameter key="last_example" value="%{limit}"/>
+        <parameter key="invert_filter" value="false"/>
+        <description align="center" color="transparent" colored="false" width="126">Keeps the best %{limit} candidates (all of them when there are fewer).</description>
+      </operator>
+      <operator activated="true" class="rename" compatibility="9.7.000" expanded="true" height="82" name="Response columns" width="90" x="1251" y="85">
+        <parameter key="old_name" value="SECOND_ID"/>
+        <parameter key="new_name" value="product_id"/>
+        <list key="rename_additional_attributes">
+          <parameter key="sum(weighted)" value="score"/>
+        </list>
+        <description align="center" color="transparent" colored="false" width="126">Response rows: product_id, score - the columns the API's RapidMiner client reads.</description>
+      </operator>
+      <connect from_port="input 1" to_op="Copy history" to_port="input"/>
+      <connect from_op="Copy history" from_port="output 1" to_op="History x neighbours" to_port="left"/>
+      <connect from_op="Copy history" from_port="output 2" to_op="History id" to_port="example set input"/>
+      <connect from_op="Read similarity model" from_port="output" to_op="History x neighbours" to_port="right"/>
+      <connect from_op="History x neighbours" from_port="join" to_op="weight x similarity" to_port="example set input"/>
+      <connect from_op="weight x similarity" from_port="example set output" to_op="Score per candidate" to_port="example set input"/>
+      <connect from_op="Score per candidate" from_port="example set output" to_op="Candidate id" to_port="example set input"/>
+      <connect from_op="Candidate id" from_port="example set output" to_op="Remove known products" to_port="example set input"/>
+      <connect from_op="History id" from_port="example set output" to_op="Remove known products" to_port="subtrahend"/>
+      <connect from_op="Remove known products" from_port="example set output" to_op="Best first" to_port="example set input"/>
+      <connect from_op="Best first" from_port="example set output" to_op="Top N" to_port="example set input"/>
+      <connect from_op="Top N" from_port="example set output" to_op="Response columns" to_port="example set input"/>
+      <connect from_op="Response columns" from_port="example set output" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="source_input 2" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <description align="left" color="yellow" colored="false" height="90" resized="true" width="560" x="45" y="340">Deploy on Altair AI Hub as a real-time scoring web service and put its URL in RAPIDMINER_SCORING_URL. The API posts {"data": [{"user_id", "product_id", "weight"}, ...]} (input port 1) and reads the returned rows (product_id, score). To test in AI Studio, connect a Read CSV of rapidminer/sample-data/history.csv to input port 1.</description>
+    </process>
+  </operator>
+</process>

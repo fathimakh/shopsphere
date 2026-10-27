@@ -1,0 +1,61 @@
+product_id,name,category,brand,price,rating
+66f1a0000200000000000001,iPhone 13 Pro,smartphones,Apple,93499,0
+66f1a0000200000000000002,iPhone X,smartphones,Apple,76499,0
+66f1a0000200000000000003,Oppo F19 Pro Plus,smartphones,Oppo,33999,0
+66f1a0000200000000000004,Realme XT,smartphones,Realme,29749,5
+66f1a0000200000000000005,Samsung Galaxy S8,smartphones,Samsung,42499,5
+66f1a0000200000000000006,Samsung Galaxy S10,smartphones,Samsung,59499,0
+66f1a0000200000000000007,Apple MacBook Pro 14 Inch Space Grey,laptops,Apple,169999,5
+66f1a0000200000000000008,Asus Zenbook Pro Dual Screen Laptop,laptops,Asus,152999,0
+66f1a0000200000000000009,Huawei Matebook X Pro,laptops,Huawei,118999,0
+66f1a000020000000000000a,Lenovo Yoga 920,laptops,Lenovo,93499,0
+66f1a000020000000000000b,Dell XPS 13 9300 Laptop,laptops,Dell,127499,0
+66f1a000020000000000000c,iPad Mini 2021 Starlight,tablets,Apple,42499,0
+66f1a000020000000000000d,Samsung Galaxy Tab S8 Plus Grey,tablets,Samsung,50999,0
+66f1a000020000000000000e,Samsung Galaxy Tab White,tablets,Samsung,29749,0
+66f1a000020000000000000f,Apple Airpods,mobile-accessories,Apple,11049,0
+66f1a0000200000000000010,Apple AirPods Max Silver,mobile-accessories,Apple,46749,5
+66f1a0000200000000000011,Apple iPhone Charger,mobile-accessories,Apple,1699,4.3
+66f1a0000200000000000012,Apple MagSafe Battery Pack,mobile-accessories,Apple,8499,4
+66f1a0000200000000000013,Beats Flex Wireless Earphones,mobile-accessories,Beats,4249,5
+66f1a0000200000000000014,iPhone 12 Silicone Case with MagSafe Plum,mobile-accessories,Apple,2549,5
+66f1a0000200000000000015,Brown Leather Belt Watch,mens-watches,Fashion Timepieces,7649,0
+66f1a0000200000000000016,Longines Master Collection,mens-watches,Longines,127499,4
+66f1a0000200000000000017,Rolex Cellini Date Black Dial,mens-watches,Rolex,764999,0
+66f1a0000200000000000018,Rolex Datejust,mens-watches,Rolex,934999,0
+66f1a0000200000000000019,Rolex Submariner Watch,mens-watches,Rolex,1189999,4
+66f1a000020000000000001a,Blue Women's Handbag,womens-bags,Fashionista,4249,0
+66f1a000020000000000001b,Heshe Women's Leather Bag,womens-bags,Heshe,11049,4
+66f1a000020000000000001c,Prada Women Bag,womens-bags,Prada,50999,5
+66f1a000020000000000001d,White Faux Leather Backpack,womens-bags,Urban Chic,3399,0
+66f1a000020000000000001e,Women Handbag Black,womens-bags,Elegance Collection,5099,0
+66f1a000020000000000001f,Calvin Klein CK One,fragrances,Calvin Klein,4249,5
+66f1a0000200000000000020,Chanel Coco Noir Eau de Parfum,fragrances,Chanel,11049,5
+66f1a0000200000000000021,Dior J'adore,fragrances,Dior,7649,4
+66f1a0000200000000000022,Dolce Shine Eau de Parfum,fragrances,Dolce & Gabbana,5949,0
+66f1a0000200000000000023,Gucci Bloom Eau de Parfum,fragrances,Gucci,6799,0
+66f1a0000200000000000024,Blue & Black Check Shirt,mens-shirts,Fashion Trends,2549,0
+66f1a0000200000000000025,Gigabyte Aorus Men T-Shirt,mens-shirts,Gigabyte,2099,4
+66f1a0000200000000000026,Man Plaid Shirt,mens-shirts,Classic Wear,2949,4
+66f1a0000200000000000027,Man Short Sleeve Shirt,mens-shirts,Casual Comfort,1699,0
+66f1a0000200000000000028,Men Check Shirt,mens-shirts,Urban Chic,2399,4
+66f1a0000200000000000029,Black Sun Glasses,sunglasses,Fashion Shades,2549,0
+66f1a000020000000000002a,Classic Sun Glasses,sunglasses,Fashion Shades,2099,0
+66f1a000020000000000002b,Green and Black Glasses,sunglasses,Fashion Shades,2949,0
+66f1a000020000000000002c,Party Glasses,sunglasses,Fashion Fun,1699,5
+66f1a000020000000000002d,Classic Black Sunglasses,sunglasses,Fashion Shades,1949,0
+66f1a000020000000000002e,Boxed Blender,kitchen-accessories,Generic,3399,0
+66f1a000020000000000002f,Carbon Steel Wok,kitchen-accessories,Generic,2549,0
+66f1a0000200000000000030,Hand Blender,kitchen-accessories,Generic,2949,0
+66f1a0000200000000000031,Lunch Box,kitchen-accessories,Generic,1099,0
+66f1a0000200000000000032,Microwave Oven,kitchen-accessories,Generic,7649,0
+66f1a0000200000000000033,Decoration Swing,home-decoration,Generic,5099,0
+66f1a0000200000000000034,Family Tree Photo Frame,home-decoration,Generic,2549,0
+66f1a0000200000000000035,House Showpiece Plant,home-decoration,Generic,3399,0
+66f1a0000200000000000036,Plant Pot,home-decoration,Generic,1249,0
+66f1a0000200000000000037,Table Lamp,home-decoration,Generic,4249,4
+66f1a0000200000000000038,Basketball,sports-accessories,Generic,1249,0
+66f1a0000200000000000039,Cricket Bat,sports-accessories,Generic,2549,0
+66f1a000020000000000003a,Cricket Helmet,sports-accessories,Generic,3799,0
+66f1a000020000000000003b,Iron Golf,sports-accessories,Generic,4249,0
+66f1a000020000000000003c,Tennis Racket,sports-accessories,Generic,4249,0

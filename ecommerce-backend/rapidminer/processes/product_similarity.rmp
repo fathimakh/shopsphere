@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.7.000">
+  <context>
+    <input/>
+    <output/>
+    <macros>
+      <macro>
+        <key>input_file</key>
+        <value>/path/to/ecommerce-backend/rapidminer/data/rating-matrix.csv</value>
+      </macro>
+      <macro>
+        <key>output_file</key>
+        <value>/path/to/ecommerce-backend/rapidminer/output/product_similarity.csv</value>
+      </macro>
+    </macros>
+  </context>
+  <operator activated="true" class="process" compatibility="9.7.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="UTF-8"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="9.7.000" expanded="true" height="68" name="Read rating matrix" width="90" x="45" y="85">
+        <parameter key="csv_file" value="%{input_file}"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value='"'/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="first_row_as_names" value="true"/>
+        <parameter key="encoding" value="UTF-8"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <description align="center" color="transparent" colored="false" width="126">rating-matrix.csv exported by the API (Admin &#8594; RapidMiner, or GET /api/analytics/export/rating-matrix.csv): one row per product, one column u_&lt;userId&gt; per shopper. Cell = view 1 + cart_add 3 + review 4 + purchase 5, capped at 10. The number of user columns changes with every export, so the column types are guessed (product_id = polynominal, u_* = integer).</description>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.7.000" expanded="true" height="82" name="product_id = id" width="90" x="179" y="85">
+        <parameter key="attribute_name" value="product_id"/>
+        <parameter key="target_role" value="id"/>
+        <list key="set_additional_roles">
+        </list>
+        <description align="center" color="transparent" colored="false" width="126">The product id becomes the id attribute, so only the user columns form the product vectors.</description>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="9.7.000" expanded="true" height="103" name="Copy matrix" width="90" x="313" y="85">
+        <description align="center" color="transparent" colored="false" width="126">Cross Distances compares the matrix with itself: request set x reference set.</description>
+      </operator>
+      <operator activated="true" class="cross_distances" compatibility="9.7.000" expanded="true" height="103" name="Cosine similarity" width="90" x="447" y="85">
+        <parameter key="measure_types" value="NumericalMeasures"/>
+        <parameter key="numerical_measure" value="CosineSimilarity"/>
+        <parameter key="only_top_k" value="true"/>
+        <parameter key="k" value="21"/>
+        <parameter key="search_for" value="farthest"/>
+        <parameter key="compute_similarities" value="true"/>
+        <description align="center" color="transparent" colored="false" width="126">Item-based collaborative filtering: cosine similarity between product vectors. With compute similarities, "farthest" keeps the k HIGHEST similarities; k = 21 = 20 neighbours + the product itself.</description>
+      </operator>
+      <operator activated="true" class="filter_examples" compatibility="9.7.000" expanded="true" height="103" name="Drop self pairs" width="90" x="581" y="85">
+        <parameter key="parameter_expression" value="request != document &amp;&amp; distance &gt; 0"/>
+        <parameter key="condition_class" value="expression"/>
+        <parameter key="invert_filter" value="false"/>
+        <description align="center" color="transparent" colored="false" width="126">Removes each product's match with itself and pairs that share no shopper (similarity 0).</description>
+      </operator>
+      <operator activated="true" class="rename" compatibility="9.7.000" expanded="true" height="82" name="Import columns" width="90" x="715" y="85">
+        <parameter key="old_name" value="request"/>
+        <parameter key="new_name" value="FIRST_ID"/>
+        <list key="rename_additional_attributes">
+          <parameter key="document" value="SECOND_ID"/>
+          <parameter key="distance" value="SIMILARITY"/>
+        </list>
+        <description align="center" color="transparent" colored="false" width="126">Columns expected by POST /api/analytics/import: FIRST_ID, SECOND_ID, SIMILARITY.</description>
+      </operator>
+      <operator activated="true" class="sort" compatibility="9.7.000" expanded="true" height="82" name="Most similar first" width="90" x="849" y="85">
+        <parameter key="attribute_name" value="SIMILARITY"/>
+        <parameter key="sorting_direction" value="decreasing"/>
+        <description align="center" color="transparent" colored="false" width="126">Strongest product pairs first (easier to inspect in the Results view).</description>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="9.7.000" expanded="true" height="82" name="Write product_similarity" width="90" x="983" y="85">
+        <parameter key="csv_file" value="%{output_file}"/>
+        <parameter key="column_separator" value=","/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="false"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="UTF-8"/>
+        <description align="center" color="transparent" colored="false" width="126">Upload this file in Admin &#8594; RapidMiner (or POST it to /api/analytics/import). The store then serves recommendations from this RapidMiner model.</description>
+      </operator>
+      <connect from_op="Read rating matrix" from_port="output" to_op="product_id = id" to_port="example set input"/>
+      <connect from_op="product_id = id" from_port="example set output" to_op="Copy matrix" to_port="input"/>
+      <connect from_op="Copy matrix" from_port="output 1" to_op="Cosine similarity" to_port="request set"/>
+      <connect from_op="Copy matrix" from_port="output 2" to_op="Cosine similarity" to_port="reference set"/>
+      <connect from_op="Cosine similarity" from_port="result set" to_op="Drop self pairs" to_port="example set input"/>
+      <connect from_op="Drop self pairs" from_port="example set output" to_op="Import columns" to_port="example set input"/>
+      <connect from_op="Import columns" from_port="example set output" to_op="Most similar first" to_port="example set input"/>
+      <connect from_op="Most similar first" from_port="example set output" to_op="Write product_similarity" to_port="input"/>
+      <connect from_op="Write product_similarity" from_port="through" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <description align="left" color="yellow" colored="false" height="105" resized="true" width="560" x="45" y="230">ShopSphere - item-based collaborative filtering. 1) Export rating-matrix.csv from the store. 2) Set the input_file / output_file macros (Process &#8594; Context). 3) Run. 4) Import product_similarity.csv back into the store. The API then serves "Recommended for you" and "You may also like" from this RapidMiner model (source badge "RapidMiner model").</description>
+    </process>
+  </operator>
+</process>

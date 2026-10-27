@@ -91,3 +91,27 @@ describe('cosineNeighbours', () => {
     assert.equal(isolated.size, 0);
   });
 });
+
+describe('agreement with the RapidMiner reference data (rapidminer/sample-data)', () => {
+  it('reproduces expected_similarity.csv from rating-matrix.csv', async () => {
+    const { readFile } = await import('node:fs/promises');
+    const { parseCsv } = await import('../services/csv.js');
+    const read = async (name) => parseCsv(await readFile(new URL(`../rapidminer/sample-data/${name}`, import.meta.url), 'utf8'));
+
+    // Rebuild the matrix from the wide CSV exactly as the export lays it out (product rows, u_<id> columns).
+    const [header, ...rows] = await read('rating-matrix.csv');
+    const cells = rows.flatMap(([product, ...weights]) =>
+      weights.map((weight, index) => ({ product, user: header[index + 1].slice(2), weight: Number(weight) })).filter((c) => c.weight > 0),
+    );
+    const neighbours = cosineNeighbours(buildRatingMatrix(cells));
+
+    const [, ...expected] = await read('expected_similarity.csv');
+    const actual = [...neighbours].flatMap(([first, list]) => list.map(({ product, score }) => [first, product, score]));
+    assert.equal(actual.length, expected.length);
+    for (const [first, second, similarity] of expected) {
+      const match = neighbours.get(first)?.find((neighbour) => neighbour.product === second);
+      assert.ok(match, `${first} -> ${second} missing`);
+      assert.ok(Math.abs(match.score - Number(similarity)) < 1e-6, `${first} -> ${second}: ${match.score} vs ${similarity}`);
+    }
+  });
+});
