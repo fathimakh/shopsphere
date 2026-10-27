@@ -31,14 +31,14 @@ const COLUMNS = [
     header: 'Order',
     primary: true,
     cell: (order) => (
-      <div className="flex items-start justify-between gap-3 md:block">
+      <div className="flex items-start justify-between gap-3 xl:block">
         <div className="min-w-0">
           <p className="font-semibold text-stone-900">{shortId(order._id)}</p>
           <p className="text-xs text-stone-500">
             {formatDate(order.createdAt)} · {pluralize(order.orderItems?.length ?? 0, 'item')}
           </p>
         </div>
-        <StatusBadge status={order.status} className="md:hidden" />
+        <StatusBadge status={order.status} className="xl:hidden" />
       </div>
     ),
   },
@@ -48,7 +48,7 @@ const COLUMNS = [
     cell: (order) => (
       <div className="min-w-0">
         <p className="truncate font-medium text-stone-900">{order.user?.name ?? 'Unknown'}</p>
-        <p className="truncate text-xs text-stone-500 md:max-w-56">{order.user?.email}</p>
+        <p className="truncate text-xs text-stone-500 xl:max-w-56">{order.user?.email}</p>
       </div>
     ),
   },

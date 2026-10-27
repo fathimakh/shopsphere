@@ -53,7 +53,7 @@ const STEPS = [
   { title: 'Export', body: 'Download rating-matrix.csv: every product’s implicit-feedback score from every shopper.' },
   {
     title: 'Score in RapidMiner',
-    body: 'Run rapidminer/processes/product_similarity.rmp in RapidMiner Studio: cosine item-to-item similarity, written out by “Similarity to Data”.',
+    body: 'Run product_similarity.rmp (rapidminer/processes) in Altair AI Studio: cosine item-to-item similarity with Cross Distances, saved as product_similarity.csv.',
   },
   { title: 'Import', body: 'Upload the scored product_similarity.csv below. It replaces the previous model instantly.' },
   {
@@ -196,7 +196,7 @@ export default function AdminRecommendations() {
                 </span>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-stone-900">{step.title}</p>
-                  <p className="mt-0.5 text-xs leading-relaxed text-stone-600">{step.body}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed break-words text-stone-600">{step.body}</p>
                 </div>
               </li>
             ))}

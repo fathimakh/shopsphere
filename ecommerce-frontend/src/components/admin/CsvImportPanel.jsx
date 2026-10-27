@@ -10,10 +10,14 @@ import { pluralize } from '../../utils/format'
 const MAX_BYTES = 10 * 1024 * 1024
 const PREVIEW_ROWS = 4
 
-/** Accepted headers (contract §4): RapidMiner's "Similarity to Data" names, or the generic alias. */
+/**
+ * Accepted headers (contract §4), as on the server: the renamed output of product_similarity.rmp,
+ * the generic alias, or Cross Distances' own column names.
+ */
 const HEADER_FORMATS = [
   ['first_id', 'second_id', 'similarity'],
   ['product_id', 'similar_product_id', 'score'],
+  ['request', 'document', 'distance'],
 ]
 
 const splitCsvLine = (line) => line.split(',').map((cell) => cell.trim().replace(/^"(.*)"$/, '$1'))

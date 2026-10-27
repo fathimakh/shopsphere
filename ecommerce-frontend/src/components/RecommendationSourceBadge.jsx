@@ -49,7 +49,9 @@ export default function RecommendationSourceBadge({ source, className = '' }) {
       <span
         id={tooltipId}
         role="tooltip"
-        className={`pointer-events-none absolute top-full left-0 z-30 mt-2 w-72 max-w-[calc(100vw-2rem)] rounded-xl bg-stone-900 px-3.5 py-2.5 text-xs leading-relaxed font-medium text-white shadow-xl transition-opacity duration-150 group-hover/tip:visible group-hover/tip:opacity-100 ${
+        // Phones: a strip pinned to the bottom of the screen (never wider than the viewport);
+        // from sm: a popover under the badge.
+        className={`pointer-events-none fixed inset-x-4 bottom-4 z-30 sm:absolute sm:inset-x-auto sm:top-full sm:bottom-auto sm:left-0 sm:mt-2 sm:w-72 rounded-xl bg-stone-900 px-3.5 py-2.5 text-xs leading-relaxed font-medium text-white shadow-xl transition-opacity duration-150 group-hover/tip:visible group-hover/tip:opacity-100 ${
           pinned ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
       >

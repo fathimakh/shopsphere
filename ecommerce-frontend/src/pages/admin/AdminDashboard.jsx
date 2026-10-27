@@ -21,7 +21,7 @@ function DashboardSkeleton() {
           <div key={index} className="skeleton h-28 rounded-2xl" />
         ))}
       </div>
-      <div className="grid gap-4 xl:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
         <div className="skeleton h-64 rounded-2xl" />
         <div className="skeleton h-64 rounded-2xl" />
       </div>
@@ -179,7 +179,7 @@ export default function AdminDashboard() {
           />
         </div>
 
-        <div className="grid gap-4 xl:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
           <AdminPanel title="Orders by status" description="Select a status to see those orders.">
             <BarList items={statusItems} label="Orders by status" emptyMessage="No orders yet." />
           </AdminPanel>

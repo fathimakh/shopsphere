@@ -33,7 +33,7 @@ const COLUMNS = [
         <div className="min-w-0">
           <Link
             to={`/product/${product._id}`}
-            className="line-clamp-2 font-semibold text-stone-900 hover:text-brand-700 md:max-w-xs"
+            className="line-clamp-2 font-semibold text-stone-900 hover:text-brand-700 xl:max-w-xs"
           >
             {product.name}
           </Link>
