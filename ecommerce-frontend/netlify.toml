@@ -1,5 +1,5 @@
 # Netlify: set "Base directory" to ecommerce-frontend and add VITE_API_URL
-# (e.g. https://shopsphere-api.onrender.com/api) under Site settings → Environment variables.
+# (e.g. https://shopsphere-api-iold.onrender.com/api) under Site settings → Environment variables.
 [build]
   command = "npm run build"
   publish = "dist"

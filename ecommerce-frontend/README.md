@@ -111,7 +111,7 @@ npm run dev                   # http://localhost:5175 (the API must be running)
 
 | Variable | Example | Purpose |
 |---|---|---|
-| `VITE_API_URL` | `http://localhost:5050/api` · `https://shopsphere-api.onrender.com/api` | API base URL **including** `/api`. Vite inlines it at build time, so set it on the hosting service before building. |
+| `VITE_API_URL` | `http://localhost:5050/api` · `https://shopsphere-api-iold.onrender.com/api` | API base URL **including** `/api`. Vite inlines it at build time, so set it on the hosting service before building. |
 
 Only `.env.example` is committed. The API must list the frontend origin in its `CLIENT_URL` (CORS).
 

@@ -277,7 +277,7 @@ Tests use separate databases (`shopsphere_test_<file>`) on the same MongoDB and 
    *Web Service* with root directory `ecommerce-backend`, build `npm ci`, start `npm start`, health check
    `/api/health`.
 3. Environment: `NODE_ENV=production`, `MONGO_URI`, `JWT_SECRET` (generated), `CLIENT_URL` = the deployed
-   frontend origin (e.g. `https://shopsphere-web.onrender.com`), optional `RAPIDMINER_*`.
+   frontend origin (e.g. `https://shopsphere-web-bwen.onrender.com`), optional `RAPIDMINER_*`.
 4. Seed the Atlas database once from your machine: `MONGO_URI="<atlas uri>" npm run seed`.
 5. Free Render services sleep when idle; the first request can take ~30–60 s (the frontend shows a
    "waking up the server" banner).

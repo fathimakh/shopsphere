@@ -10,13 +10,15 @@ product **filtering / sorting / search**, orders with real stock management, a v
 
 | | |
 |---|---|
-| 🌐 **Live website** | _added after deployment_ — planned: `https://shopsphere-web.onrender.com` (or Netlify / Vercel) |
-| 🔌 **Live API** | _added after deployment_ — planned: `https://shopsphere-api.onrender.com/api/health` |
-| 📦 **Repository** | `https://github.com/fathimakh/<repository-name>` |
+| 🌐 **Live website** | https://shopsphere-web-bwen.onrender.com |
+| 🔌 **Live API** | https://shopsphere-api-iold.onrender.com/api/health |
+| 📦 **Repository** | https://github.com/fathimakh/shopsphere |
 | 👤 **Demo shopper** | `demo@shopsphere.dev` / `Demo@1234` |
 | 🛡️ **Demo admin** | `admin@shopsphere.dev` / `Admin@123` |
 
-The login page has **"Use demo shopper" / "Use admin demo"** buttons that fill these in.
+The login page has **"Use demo shopper" / "Use admin demo"** buttons that fill these in. The API runs on
+Render's free plan, which sleeps when idle: the first request after a quiet spell can take up to a minute
+(the site shows "Waking up the server…" meanwhile).
 
 ![Home page with RapidMiner recommendations](docs/screenshots/02-home-recommended-for-you.jpg)
 
@@ -104,7 +106,7 @@ git-ignored. The API reads `MONGO_URI`, `JWT_SECRET`, `CLIENT_URL` (CORS allow-l
 |---|---|---|
 | API unit + integration tests (`node:test` + supertest) | `cd ecommerce-backend && npm test` | **130 / 130 passing** |
 | Postman collection (newman) | `npm run test:api` | **77 requests, 145 / 145 assertions** ([summary](ecommerce-backend/postman/results/newman-summary.txt)) |
-| Browser smoke test (Playwright, real API + MongoDB) | `cd e2e && npm test` | **43 / 43 checks** on desktop, tablet and phone |
+| Browser smoke test (Playwright, real API + MongoDB) | `cd e2e && npm test` (live: `E2E_BASE_URL=https://shopsphere-web-bwen.onrender.com npm test`) | **43 / 43 checks** on desktop, tablet and phone — locally and on the live site |
 | Frontend lint | `cd ecommerce-frontend && npm run lint` | 0 errors, 0 warnings |
 | Frontend production build | `npm run build` | ✓ |
 | RapidMiner process validation (against the RapidMiner Studio 9.7 source) | `python3 -I ecommerce-backend/rapidminer/tools/validate_processes.py` | OK |
@@ -157,7 +159,7 @@ frontend also deploys to **Netlify** ([`netlify.toml`](ecommerce-frontend/netlif
 | Frontend consumes auth, products **and orders** endpoints | checkout → `POST /api/orders`, My orders, cancel, admin order management |
 | Environment variables (Vite + Node) | `VITE_API_URL`; `MONGO_URI`, `JWT_SECRET`, `CLIENT_URL`, `RAPIDMINER_*` (`.env.example` in both apps) |
 | Errors, loading states, token validation handled gracefully | skeletons, error panels with retry, field errors, 401 interceptor → `/login?expired=1`, slow-server banner |
-| Deployed on Netlify / Vercel / Render with GitHub | configs ready; live URLs above once deployed |
+| Deployed on Netlify / Vercel / Render with GitHub | live on Render (API web service + static site) with MongoDB Atlas, auto-deployed from GitHub; URLs at the top |
 
 ## Screenshots
 
