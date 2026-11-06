@@ -159,7 +159,7 @@ frontend also deploys to **Netlify** ([`netlify.toml`](ecommerce-frontend/netlif
 | Frontend consumes auth, products **and orders** endpoints | checkout → `POST /api/orders`, My orders, cancel, admin order management |
 | Environment variables (Vite + Node) | `VITE_API_URL`; `MONGO_URI`, `JWT_SECRET`, `CLIENT_URL`, `RAPIDMINER_*` (`.env.example` in both apps) |
 | Errors, loading states, token validation handled gracefully | skeletons, error panels with retry, field errors, 401 interceptor → `/login?expired=1`, slow-server banner |
-| Deployed on Netlify / Vercel / Render with GitHub | live on Render (API web service + static site) with MongoDB Atlas, auto-deployed from GitHub; URLs at the top |
+| Deployed on Netlify / Vercel / Render with GitHub | live on Render (API web service + static site) with MongoDB Atlas, built from this GitHub repository; URLs at the top |
 
 ## Screenshots
 
