@@ -62,7 +62,7 @@ Module-5/
 ├── ecommerce-backend/        # Node.js + Express + MongoDB API — see ecommerce-backend/README.md
 │   ├── index.js, config/, models/, controllers/, routes/, middleware/   (assignment structure)
 │   ├── services/, validators/, utils/, scripts/ (seed), tests/, postman/
-│   └── rapidminer/           # RapidMiner processes, training data, reference values, guide
+│   └── rapidminer/           # RapidMiner processes, training data, RapidMiner output, runner, guide
 ├── ecommerce-frontend/       # React + Vite + Redux Toolkit + Tailwind — see ecommerce-frontend/README.md
 │   └── src/ assets/ components/ redux/{store,slices,thunks}/ api/ pages/ App.jsx main.jsx index.css
 ├── e2e/                      # Playwright browser smoke test of the running stack
@@ -108,13 +108,16 @@ git-ignored. The API reads `MONGO_URI`, `JWT_SECRET`, `CLIENT_URL` (CORS allow-l
 | Frontend lint | `cd ecommerce-frontend && npm run lint` | 0 errors, 0 warnings |
 | Frontend production build | `npm run build` | ✓ |
 | RapidMiner process validation (against the RapidMiner Studio 9.7 source) | `python3 -I ecommerce-backend/rapidminer/tools/validate_processes.py` | OK |
+| RapidMiner run (RapidMiner Studio Core 9.7.0) | `ecommerce-backend/rapidminer/tools/core-runner/run.sh …` ([log](ecommerce-backend/rapidminer/output/run-log.txt)) | 849 similarity pairs, identical to the Python reference; imported 849 / skipped 0 |
 
 ## Recommendation system (RapidMiner)
 
 1. Every view, cart add, review and purchase is stored with a weight (1 / 3 / 4 / 5).
 2. Admins export the **product × user rating matrix** (`Admin → RapidMiner`, or `GET /api/analytics/export/rating-matrix.csv`).
-3. **`rapidminer/processes/product_similarity.rmp`** (Altair AI Studio / RapidMiner Studio) computes cosine
-   item-to-item similarities with *Cross Distances* and writes `product_similarity.csv`.
+3. **`rapidminer/processes/product_similarity.rmp`** computes cosine item-to-item similarities with
+   *Cross Distances* and writes `product_similarity.csv`. It was run with RapidMiner Studio Core 9.7.0
+   (`rapidminer/tools/core-runner`); the result is committed in
+   [`rapidminer/output/`](ecommerce-backend/rapidminer/output) and opens in Altair AI Studio too.
 4. The file is imported back (`Admin → RapidMiner → Import`, or `POST /api/analytics/import`); the API now
    serves **"Recommended for you"** (Σ weight × similarity over the shopper's history) and **"You may also
    like"** from the RapidMiner model, with a reason per product.

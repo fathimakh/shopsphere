@@ -2,7 +2,7 @@
 
 ShopSphere's product recommendations ("Recommended for you" on the home page, "You may also like" on
 every product page) come from an **item-based collaborative-filtering model built in RapidMiner**
-(Altair AI Studio). The API exports the shoppers' behaviour as CSV, a RapidMiner process turns it into
+(RapidMiner Studio / Altair AI Studio). The API exports the shoppers' behaviour as CSV, a RapidMiner process turns it into
 product-to-product similarities, and the result is imported back into the store, which then serves
 recommendations from it. A live mode calls a RapidMiner model deployed on Altair AI Hub on every request.
 
@@ -15,9 +15,11 @@ rapidminer/
 │   ├── rating-matrix.csv  interactions.csv  products.csv
 ├── sample-data/                 # tiny hand-checkable example + Python reference values
 │   ├── rating-matrix.csv  expected_similarity.csv  compute_expected.py  history.csv
-├── output/                      # RapidMiner writes product_similarity.csv here
-├── tools/validate_processes.py  # static checker for the .rmp files
-├── VERIFICATION.md              # how the processes were checked (and what still needs a first run)
+├── output/                      # RapidMiner output: product_similarity.csv (the model), recommend_for_user result, run-log.txt
+├── tools/
+│   ├── core-runner/             # runs the .rmp files with RapidMiner Studio Core 9.7.0 (no GUI, no account)
+│   └── validate_processes.py    # static checker for the .rmp files
+├── VERIFICATION.md              # how the processes were run and checked
 └── README.md
 ```
 
@@ -109,6 +111,25 @@ Commit the generated `output/product_similarity.csv` as evidence of the run.
 | 7 | Sort | strongest pairs first |
 | 8 | Write CSV | `product_similarity.csv` (also shown in the Results view) |
 
+### Without AI Studio: the RapidMiner engine from the command line
+
+[`tools/core-runner/run.sh`](tools/core-runner/run.sh) runs the same process files with **RapidMiner Studio
+Core 9.7.0**, the open-source engine of RapidMiner Studio (AGPL-3.0), downloaded from RapidMiner's Maven
+repository. It needs Java 11+ and Maven, no Altair account. Macros are passed as `name=value`:
+
+```bash
+cd ecommerce-backend
+R=$PWD/rapidminer
+rapidminer/tools/core-runner/run.sh $R/processes/product_similarity.rmp \
+  input_file=$R/data/rating-matrix.csv output_file=$R/output/product_similarity.csv
+# Result example set: 849 rows, columns: FIRST_ID,SECOND_ID,SIMILARITY
+```
+
+The first run downloads the engine (about 110 MB) into `tools/core-runner/.work/` (git-ignored).
+`--input=<csv>` feeds a CSV file to a process's input port (used for `recommend_for_user.rmp`),
+`--result=<csv>` saves its result, and `RM_TRACE=1` prints the row count after every operator. Then import
+the file as in step 6.
+
 ## 3. Live scoring with Altair AI Hub (optional)
 
 `processes/recommend_for_user.rmp` scores one shopper in real time. Its input port receives the
@@ -157,18 +178,20 @@ skipped, and the endpoints never return an empty list while products exist.
 
 ## 5. Status — what was verified
 
-- **Process files:** written by hand and checked with `tools/validate_processes.py`, both against its
-  operator tables and against the open-source RapidMiner Studio 9.7.0 code (`--studio-src`): every
-  operator key, parameter key, option value and port name exists. Details: [VERIFICATION.md](VERIFICATION.md).
+- **RapidMiner run:** both processes were run with RapidMiner Studio Core 9.7.0 (`tools/core-runner`).
+  `product_similarity.rmp` produced [`output/product_similarity.csv`](output/product_similarity.csv) (849
+  pairs, 53 products) and `recommend_for_user.rmp` scored one shopper's history; both results match an
+  independent Python calculation ([`output/run-log.txt`](output/run-log.txt)).
+- **In the store:** the RapidMiner file was imported (`imported 849, skipped 0`), the API reports
+  `activeSource: "rapidminer"` and the recommendation rails show the **RapidMiner model** badge.
+- **Process files:** checked with `tools/validate_processes.py`, both against its operator tables and against
+  the open-source RapidMiner Studio 9.7.0 code (`--studio-src`). Details: [VERIFICATION.md](VERIFICATION.md).
 - **Math:** `sample-data/expected_similarity.csv` holds cosine similarities computed with Python
-  (`compute_expected.py`) — reference values, **not RapidMiner output**. The API test-suite checks that
-  the built-in engine reproduces them to 6 decimals (`tests/recoSimilarity.test.js`).
-- **Data formats:** export → import was exercised end to end against the running API (the import
-  accepted the `FIRST_ID,SECOND_ID,SIMILARITY` file and switched the source to `rapidminer`), and is
-  covered by `tests/analytics.test.js`.
-- **Not yet done:** the processes have **not been executed in Altair AI Studio** here — AI Studio needs an
-  Altair account, which was not available while building. Run steps 2–7 once with an account, commit
-  `output/product_similarity.csv`, and import it into the deployed store.
+  (`compute_expected.py`) as reference values; the API test-suite checks that the built-in engine (the
+  fallback) reproduces them to 6 decimals (`tests/recoSimilarity.test.js`).
+- **Data formats:** export → import is covered by `tests/analytics.test.js`.
+- **Not done:** opening the processes in the Altair AI Studio window (needs an Altair account) and an AI Hub
+  deployment (section 3).
 
 ## 6. Troubleshooting
 

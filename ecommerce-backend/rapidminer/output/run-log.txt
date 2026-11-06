@@ -1,0 +1,36 @@
+RapidMiner run log - ShopSphere (Module 5)
+Date: 2026-11-06
+Engine: RapidMiner Studio Core 9.7.0 (open-source engine of RapidMiner Studio, AGPL-3.0), run headless with rapidminer/tools/core-runner/run.sh
+Java: openjdk version "17.0.20.1" 2026-08-18
+OS: macOS 27.0
+
+== 1. product_similarity.rmp (rating matrix -> cosine item similarities)
+$ rapidminer/tools/core-runner/run.sh rapidminer/processes/product_similarity.rmp input_file=rapidminer/data/rating-matrix.csv output_file=rapidminer/output/product_similarity.csv
+RapidMiner version: 9.7.000
+INFO: Process rapidminer/processes/product_similarity.rmp starts
+INFO: Process rapidminer/processes/product_similarity.rmp finished successfully after 0 s
+Finished in 46 ms
+Result example set: 849 rows, columns: FIRST_ID,SECOND_ID,SIMILARITY
+  66f1a0000200000000000005,66f1a0000200000000000006,1.0
+  66f1a0000200000000000006,66f1a0000200000000000005,1.0
+  66f1a000020000000000000b,66f1a000020000000000000e,1.0
+  66f1a000020000000000000e,66f1a000020000000000000b,1.0
+  66f1a0000200000000000036,66f1a0000200000000000037,0.9950371902099892
+
+== 2. recommend_for_user.rmp (one shopper's history -> top 8 products)
+$ rapidminer/tools/core-runner/run.sh rapidminer/processes/recommend_for_user.rmp model_file=rapidminer/output/product_similarity.csv limit=8 --input=rapidminer/output/recommend_for_user-input.csv --result=rapidminer/output/recommend_for_user-result.csv
+Input rapidminer/output/recommend_for_user-input.csv: 11 rows
+INFO: Process rapidminer/processes/recommend_for_user.rmp starts
+INFO: Process rapidminer/processes/recommend_for_user.rmp finished successfully after 0 s
+Finished in 96 ms
+Result example set: 8 rows, columns: score,product_id
+  5.022707482725059,66f1a000020000000000001d
+  4.398322897023629,66f1a000020000000000003a
+  4.327441483211575,66f1a0000200000000000038
+  3.71463255308955,66f1a0000200000000000020
+  3.426495523048101,66f1a000020000000000002a
+
+== 3. Cross-checks
+product_similarity.csv vs sample-data/compute_expected.py on the same rating matrix: 849 = 849 pairs, identical pairs, max difference 5.0e-07 (Python rounds to 6 decimals)
+recommend_for_user-result.csv vs sum(weight x SIMILARITY) recomputed in Python from product_similarity.csv: same 8 products in the same order, max difference 4.4e-16
+53 products, no self pairs, similarities in (0, 1]
