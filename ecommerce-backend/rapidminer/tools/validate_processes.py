@@ -13,6 +13,10 @@ was built, so this script checks everything that can be checked without running 
     (including port extenders such as "output 2", "example set 1", "result 3"), and no input
     port is connected twice; every required input port is connected
   * every %{macro} used is declared in the process context or is a predefined RapidMiner macro
+  * operator names are unique in the whole process (RapidMiner renames duplicates on load, which
+    silently drops their connections)
+  * no %{macro} inside a "string literal" of an expression: since 6.5 the expression parser reads
+    %{name} itself and leaves quoted text alone, so "%{user_id}" never matches (write %{user_id})
 
 The tables below were transcribed from the open-source RapidMiner Studio 9.7 code (see
 rapidminer/VERIFICATION.md). With --studio-src they are re-verified against a checkout of
@@ -161,6 +165,8 @@ ROOT_IO = {'inner_sources': ['input N'], 'inner_sinks': ['result N']}
 PREDEFINED_MACROS = {'process_name', 'process_file', 'process_path', 'process_start', 'a', 'execution_count', 'b', 'c', 'n',
                      'operator_name', 't', 'tempdir'}
 MACRO_RE = re.compile(r'%\{([^}]+)\}')
+QUOTED_MACRO_RE = re.compile(r'"[^"]*%\{[^}]+\}[^"]*"')
+EXPRESSION_KEYS = {'expression', 'parameter_expression', 'function_descriptions'}
 
 
 def port_matches(name, allowed):
@@ -177,6 +183,7 @@ def port_matches(name, allowed):
 class Checker:
     def __init__(self, path):
         self.path = os.path.relpath(path)
+        self.all_names = set()
         self.errors = []
         self.operators = 0
         self.connections = 0
@@ -220,12 +227,16 @@ class Checker:
             if key in values and not MACRO_RE.search(value) and value not in values[key]:
                 self.error(f'{label}: invalid value "{value}" for "{key}" (allowed: {", ".join(values[key])})')
             self.check_macros(value, label)
+            if key in EXPRESSION_KEYS:
+                self.check_expression(value, label)
         for lst in op.findall('list'):
             if lst.get('key') not in list_keys:
                 self.error(f'{label}: unknown list parameter "{lst.get("key")}"')
             for entry in lst.findall('parameter'):
                 self.check_macros(entry.get('key', ''), label)
                 self.check_macros(entry.get('value', ''), label)
+                if lst.get('key') in EXPRESSION_KEYS:
+                    self.check_expression(entry.get('value', ''), label)
                 if lst.get('key') == 'data_set_meta_data_information':
                     parts = entry.get('value', '').split('.')
                     if len(parts) != 4 or parts[1] not in ('true', 'false') or parts[2] not in VALUE_TYPES:
@@ -236,13 +247,18 @@ class Checker:
             if name not in self.known_macros:
                 self.error(f'{label}: macro %{{{name}}} is neither declared in the context nor predefined')
 
+    def check_expression(self, text, label):
+        for literal in QUOTED_MACRO_RE.findall(text or ''):
+            self.error(f'{label}: macro inside the string literal {literal} is not replaced - write the macro without quotes')
+
     def check_unit(self, unit, owner, owner_io):
         ops = {}
         for op in unit.findall('operator'):
             name, cls = op.get('name'), op.get('class')
             self.operators += 1
-            if name in ops:
-                self.error(f'{owner}: duplicate operator name "{name}"')
+            if name in self.all_names:
+                self.error(f'{owner}: duplicate operator name "{name}" (names must be unique in the whole process)')
+            self.all_names.add(name)
             ops[name] = op
             spec = OPERATORS.get(cls)
             if spec is None:

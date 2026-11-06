@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Downloads RapidMiner Studio Core 9.7.0 (open-source engine, AGPL-3.0) and its libraries for run.sh. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.shopsphere</groupId>
+  <artifactId>rapidminer-core-runner</artifactId>
+  <version>1.0.0</version>
+  <repositories>
+    <repository>
+      <id>rapidminer</id>
+      <url>https://maven.rapidminer.com/content/groups/public/</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>com.rapidminer.studio</groupId>
+      <artifactId>rapidminer-studio-core</artifactId>
+      <version>9.7.0</version>
+    </dependency>
+  </dependencies>
+</project>
